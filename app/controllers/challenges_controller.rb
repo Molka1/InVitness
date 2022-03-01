@@ -16,9 +16,9 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.new(challenge_params)
     @challenge.user = current_user
     if @challenge.save!
-      redirect_to dashboard_path, notice: 'Your challenge has beed added!'
+      redirect_to challenge_path(@challenge), notice: 'Your challenge has beed added!'
     else
-      render 'challenges/show'
+      render :new
     end
   end
 
