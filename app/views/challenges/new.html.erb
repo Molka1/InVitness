@@ -1,7 +1,4 @@
 <h1> Create a new challenge</h1> 
 
-<%= simple_form_for (@challenge) do |f| %>
-  <%= f.input :name %>
-  
-    <%= f.submit "Submit Challenge", class: "btn btn-primary" %>
-<% end %>
+  <%= render "shared/form", challenge: @challenge %>
+
