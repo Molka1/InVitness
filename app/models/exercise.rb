@@ -6,4 +6,5 @@ class Exercise < ApplicationRecord
   validates :start_time, presence: true
   validates :end_time, presence: true
   validates :content, presence: true
+  validates :challenge, presence: true
 end
