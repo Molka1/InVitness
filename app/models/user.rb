@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :challenges, dependent: :destroy
   has_many :exercises,  dependent: :destroy
+  has_many :user_challenges, dependent: :destroy
 end
