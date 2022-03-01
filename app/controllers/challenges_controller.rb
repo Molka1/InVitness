@@ -40,9 +40,9 @@ class ChallengesController < ApplicationController
     def set_challenge 
         @challenge = Challenge.find(params[:id])
     end
-    
+
     def challenge_params
-        params.require(:challenge).permit(:name, :amount, :start_date, :end_date, :code, :user_id, :private, :exercice_length, :maximum, :points, :rollover)
+        params.require(:challenge).permit(:name, :amount, :start_date, :end_date, :code, user: current_user, :private, :exercice_length, :maximum, :points, :rollover)
     end
 
 
