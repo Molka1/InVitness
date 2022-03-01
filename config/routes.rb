@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   resources :user_challenges, only: [:destroy]
   resources :exercise, only: [:index, :create, :new, :show, :destroy]
 
-  get 'leaderboard', to: 'pages#dashboard'
+  get 'leaderboard', to: 'pages#leaderboard'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

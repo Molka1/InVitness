@@ -1,0 +1,20 @@
+<h1><%= @challenge.name %></h1>
+
+<ul>
+  <% @challenge.each do |challenge| %> 
+  <%= challenge.name %> 
+    <%= challenge.amount %>
+    <%= challenge.start_date%>
+    <%= challenge.end_date %>
+    <%= challenge.code %>
+    <%= challenge.private %>
+    <%= challenge.exercice_length %>
+    <%= challenge.maximum%>
+    <%= challenge.proof%>
+    <%= challenge.points%>
+    <%= challenge.rollover%>
+  
+  <% end %>
+</ul>
+
+<%= link_to "Add to your challenges", challenges_path(@challenge)%>

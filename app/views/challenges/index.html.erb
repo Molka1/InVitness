@@ -1,0 +1,10 @@
+<h2>Home page</h2>
+
+<h3> <%= link_to "Create a new challenge! ", new_challenge_path  %></h3>
+<ul>
+ <% @challenges.each do |challenge| %>
+  <%= challenge.name %>
+
+  <li>  <%= link_to "Challenge", challenge_path(challenge), class: "btn btn-primary"%> </li>
+  <% end %>
+ </ul>
