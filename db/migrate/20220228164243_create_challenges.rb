@@ -7,11 +7,11 @@ class CreateChallenges < ActiveRecord::Migration[6.1]
       t.date :end_date
       t.string :code
       t.references :user, null: false, foreign_key: true
-      t.boolean :private
+      t.boolean :private, default: false
       t.string :exercise_length
       t.string :maximum
       t.string :points
-      t.boolean :rollover
+      t.boolean :rollover, default: false
 
       t.timestamps
     end
