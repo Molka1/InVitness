@@ -1,9 +1,9 @@
 class ExercisesController < ApplicationController
   before_action :set_exercise, only: [:edit, :update, :destroy]
-  before_action :set_challenge, only: [:index, :new, :create]
+  before_action :set_challenge, only: [:index, :new, :create, :edit, :update]
 
   def index
-    @exercises = Booking.where(challenge: @challenge)
+    @exercises = Exercise.where(challenge: @challenge)
   end
 
   def new
@@ -15,7 +15,7 @@ class ExercisesController < ApplicationController
     @exercise.user = current_user
     @exercise.challenge = @challenge
     if @exercise.save!
-      redirect_to challenge_exercise_index_path
+      redirect_to challenge_exercises_path
     else
       render :new
     end
@@ -26,12 +26,12 @@ class ExercisesController < ApplicationController
 
   def update
     @exercise.update(exercise_params)
-    redirect_to challenge_exercise_index_path
+    redirect_to challenge_exercises_path
   end
 
   def destroy
     @exercise.destroy
-    redirect_to challenge_exercise_index_path
+    redirect_to challenge_exercises_path
   end
 
   private

@@ -7,9 +7,7 @@ class Challenge < ApplicationRecord
   validates :start_date, presence: true
   validates :end_date, presence: true
   validates :user_id, presence: true
-  validates :private, presence: true 
-  validates :exercice_length, presence: true 
-  validates :maximum, presence: true 
-  validates :points, presence: true 
-  validates :rollover, presence: true 
+  validates :exercise_length, presence: true
+  validates :maximum, presence: true
+  validates :points, presence: true
 end

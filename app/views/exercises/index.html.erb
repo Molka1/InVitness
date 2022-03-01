@@ -2,7 +2,13 @@
 
 <% @exercises.each do |exercise| %>
   <%= exercise.name %>
-  <%= link_to exercise_path(@exercise), method: :delete, data: { confirm: "Are you sure?" } do %>
+  <%= exercise.user.email %>
+  <%= link_to edit_challenge_exercise_path(@challenge, exercise.id) do %>
+    <i class="far fa-edit"></i>
+  <% end %>
+  <%= link_to exercise_path(exercise.id), method: :delete, data: { confirm: "Are you sure?" } do %>
     <i class="far fa-trash-alt"></i>
   <% end %>
 <% end %>
+<br>
+<%= link_to "Back", challenge_path(@challenge) %>
