@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 2022_03_01_123857) do
     t.boolean "rollover"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "active"
+
     t.index ["user_id"], name: "index_challenges_on_user_id"
   end
 
