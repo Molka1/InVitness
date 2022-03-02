@@ -47,4 +47,13 @@ class ExercisesController < ApplicationController
   def set_challenge
     @challenge = Challenge.find(params[:challenge_id])
   end
+
+
+    def start_time
+      exercise.update(start_time: Time.now)
+    end
+
+   def stop_time
+    exercise.update(stop_time: Time.now)
+   end
 end
