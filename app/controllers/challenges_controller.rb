@@ -10,6 +10,7 @@ class ChallengesController < ApplicationController
   end
 
   def show
+    @user_challenge = UserChallenge.new
   end
 
   def create
