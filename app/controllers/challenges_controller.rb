@@ -1,5 +1,5 @@
 class ChallengesController < ApplicationController
-  before_action :set_challenge, only: [:edit, :update, :show, :destroy]
+  before_action :set_challenge, only: [:edit, :update, :show, :destroy, :members, :leaderboard]
 
   def index
     @challenges = Challenge.where(user: current_user)
@@ -33,6 +33,12 @@ class ChallengesController < ApplicationController
   def destroy
     @challenge.destroy
     redirect_to dashboard_path
+  end
+
+  def members
+  end
+
+  def leaderboard
   end
 
   private

@@ -34,6 +34,7 @@ class ExercisesController < ApplicationController
     redirect_to challenge_exercises_path
   end
 
+
   private
 
   def exercise_params

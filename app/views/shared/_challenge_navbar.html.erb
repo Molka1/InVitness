@@ -1,0 +1,16 @@
+<div class="banner bg-secondary">
+  <div class="container text-center">
+    <h1><%= @challenge.name %></h1>
+    <p>£<%= number_with_precision(@challenge.amount, precision: 2) %></p>
+    <p>By @<%= @challenge.user.username %></p>
+    <a class="btn btn-flat" href="#">Join!</a>
+  </div>
+</div>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <%= link_to "Rules", challenge_path(@challenge), class: "nav-link" %>
+    <%= link_to "Members", members_path(@challenge), class: "nav-link" %>
+    <%= link_to "Proof", challenge_exercises_path(@challenge), class: "nav-link" %>
+    <%= link_to "Leaderboard", leaderboard_path(@challenge), class: "nav-link" %>
+  </div>
+</div>

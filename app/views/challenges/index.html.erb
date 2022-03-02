@@ -3,7 +3,6 @@
 <h3> <%= link_to "Create a new challenge! ", new_challenge_path  %></h3>
 <ul>
  <% @challenges.each do |challenge| %>
-  <li> <%= challenge.name %>
-  <%= link_to "Challenge", challenge_path(challenge) %> </li>
+    <li> <%= link_to challenge.name, challenge_path(challenge) %> </li>
   <% end %>
  </ul>
