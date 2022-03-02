@@ -4,18 +4,18 @@ Rails.application.routes.draw do
   root to: 'pages#landing'
   get 'dashboard', to: 'pages#dashboard'
   get 'home', to: 'pages#home'
-  get 'leaderboard', to: 'pages#leaderboard'
-  get 'members', to: 'pages#members'
+  get 'leaderboard/:id', to: 'challenges#leaderboard', as: 'leaderboard'
+  get 'members/:id', to: 'challenges#members', as: 'members'
   get 'profile', to: 'pages#profile'
   get 'history', to: 'pages#history'
   get 'stats', to: 'pages#stats'
   resources :challenges do
     resources :user_challenges, only: [:index, :create, :show]
-    resources :exercises, only: [:index, :create, :new, :edit, :update]
+    resources :exercises, only: [:index, :create, :edit, :update]
     resources :chatroom, only: [:create, :show]
   end
   resources :user_challenges, only: [:destroy]
-  resources :exercises, only: [:destroy]
+  resources :exercises, only: [:destroy, :new]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
