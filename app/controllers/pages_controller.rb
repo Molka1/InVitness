@@ -3,4 +3,25 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def dashboard
+  end
+
+  def landing
+  end
+
+  def leaderboard
+  end
+
+  def members
+  end
+
+  def profile
+  end
+
+  def history
+  end
+
+  def stats
+  end
 end
