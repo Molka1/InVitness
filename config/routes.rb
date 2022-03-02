@@ -11,11 +11,11 @@ Rails.application.routes.draw do
   get 'stats', to: 'pages#stats'
   resources :challenges do
     resources :user_challenges, only: [:index, :create, :show]
-    resources :exercises, only: [:index, :create, :edit, :update]
+    resources :exercises, only: [:index, :edit, :update]
     resources :chatroom, only: [:create, :show]
   end
   resources :user_challenges, only: [:destroy]
-  resources :exercises, only: [:destroy, :new]
+  resources :exercises, only: [:destroy, :create, :new]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

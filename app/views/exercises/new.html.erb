@@ -1,11 +1,12 @@
 <h1>Post Your Proof!</h1>
 
-<%= simple_form_for [@challenge, @exercise] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :start_time %>
-  <%= f.input :end_time %>
-  <%= f.input :content %>
-  <%= f.submit %>
+ <%= simple_form_for(@exercise) do |f| %>
+   <%= f.input :challenge_id, collection: Challenge.all %>
+   <%= f.input :name %>
+   <%= f.input :start_time %>
+   <%= f.input :end_time %>
+   <%= f.input :content %>
+   <%= f.submit %>
 <% end %>
 
-<%= link_to "Back", challenge_exercises_path(@challenge) %>
+<%# <%= link_to "Back", challenge_exercises_path(@challenge) %>
