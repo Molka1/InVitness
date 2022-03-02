@@ -1,17 +1,21 @@
  <%= render 'shared/challenge_navbar' %>
 
+  <%= simple_form_for [@challenge, @user_challenge] do |f| %>
+    <%= f.button :submit, "Join", class: "page-btn long" %>
+  <% end %>
+
 <ul>
   <%= @challenge.name %>
   <%= @challenge.amount %>
-  <%= @challenge.start_date%>
+  <%= @challenge.start_date %>
   <%= @challenge.end_date %>
   <%= @challenge.code %>
   <%= @challenge.private %>
   <%= @challenge.exercise_length %>
-  <%= @challenge.maximum%>
-  <%= @challenge.proof%>
-  <%= @challenge.points%>
-  <%= @challenge.rollover%>
+  <%= @challenge.maximum %>
+  <%= @challenge.proof %>
+  <%= @challenge.points %>
+  <%= @challenge.rollover %>
 </ul>
 
 <%= link_to "See Proofs!", challenge_exercises_path(@challenge) %>
