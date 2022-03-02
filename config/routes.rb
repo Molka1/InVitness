@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   root to: 'pages#landing'
   get 'dashboard', to: 'pages#dashboard'
   get 'home', to: 'pages#home'
+  get 'leaderboard', to: 'pages#leaderboard'
+  get 'members', to: 'pages#members'
+  get 'profile', to: 'pages#profile'
+  get 'history', to: 'pages#history'
+  get 'stats', to: 'pages#stats'
   resources :challenges do
     resources :user_challenges, only: [:index, :create, :show]
     resources :exercises, only: [:index, :create, :new, :edit, :update]
@@ -12,6 +17,5 @@ Rails.application.routes.draw do
   resources :user_challenges, only: [:destroy]
   resources :exercises, only: [:destroy]
 
-  get 'leaderboard', to: 'pages#leaderboard'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
