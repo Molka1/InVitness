@@ -15,7 +15,7 @@ puts "creating products"
 
 ella = User.create(email: "ella@email.com", password: "123456")
 
-10.times do
+file = URI.open('https://images.pexels.com/photos/8758859/pexels-photo-8758859.jpeg?cs=srgb&dl=pexels-evelina-zhu-8758859.jpg&fm=jpg')
   challenge = Challenge.new(
     name: Faker::Space.constellation,
     amount: rand(10..100),
@@ -30,5 +30,6 @@ ella = User.create(email: "ella@email.com", password: "123456")
     rollover: [true, false].sample,
     user: ella
   )
+  challenge.photo.attach(io: file, filename: 'nes.png', content_type: 'image/jpg')
   challenge.save!
-end
+
