@@ -1,4 +1,5 @@
-<h1>Post Your Proof!</h1>
+<div class="new-form">
+ <h2>Post Your Proof!</h2>
 
  <%= simple_form_for(@exercise) do |f| %>
    <%= f.input :challenge_id, collection: Challenge.all %>
@@ -6,21 +7,21 @@
    <%= f.input :start_time %>
    <%= f.input :end_time %>
    <%= f.input :content %>
-   <%= f.submit %>
+   <%= f.submit class: "btn btn-light w-100" %>
 <% end %>
-
+ <%# </div> %>
 <br>
 
 <p id="demo"></p>
 
-<div class="wrapper">
+  <div class="wrapper">
 
-<h2>InVitness Stopwatch</h2>
-<p><span id="seconds">00</span>:<span id="tens">00</span></p>
-<button id="button-start">Start</button>
-<button id="button-stop">Stop</button>
-<button id="button-reset">Reset</button>
-</div>
+  <h2>InVitness Stopwatch</h2>
+   <p><span id="seconds">00</span>:<span id="tens">00</span></p>
+   <button id="button-start">Start</button>
+   <button id="button-stop">Stop</button>
+   <button id="button-reset">Reset</button>
+  </div>
 
 <%# WHen a user hits stop,that should trigger an event listenern which gets the numbers for minutes, seconds and hours and puts them into the form as a param. %>
 <%# EXAMPLE OF HOW TO GET TIMES FROM THE STOPWATCH BELOW %>
@@ -84,4 +85,6 @@
     }
 
   }
+
 </script>
+</div>
