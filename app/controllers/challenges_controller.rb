@@ -2,9 +2,15 @@ class ChallengesController < ApplicationController
   before_action :set_challenge, only: [:edit, :update, :show, :destroy, :members, :leaderboard]
 
   def index
-    @challenges = Challenge.where("name ILIKE ?", "%#{params[:search_query]}%")
+    # @challenges = Challenge.where("name ILIKE ?", "%#{params[:search_query]}%")
+    # @challenges = Challenge.where("name ILIKE ?", "%#{params[:search_query]}%")
+    # if params[:search][:query].nil?
+    #   @challenges = Challenge.where("name ILIKE ?", "%#{params[:search][:query]}%")
+    # else
+      @challenges = Challenge.all
+    # end
 
-    @my_challenges = Challenge.where(user: current_user)
+    # @my_challenges = Challenge.where(user: current_user)
   end
 
   def new
