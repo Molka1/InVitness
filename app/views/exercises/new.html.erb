@@ -10,16 +10,78 @@
 <% end %>
 
 <br>
-<h2>Start the timer</h2>
 
-<%=button_to( "Start", exercises_path, :method => :start_time )  %>
+<p id="demo"></p>
 
-<%=button_to( "End", exercises_path, :method => :stop_time )  %>
+<div class="wrapper">
 
-<br>
-<%=button_to( "Pause", exercises_path, :method => :stop_time )  %>
+<h2>InVitness Stopwatch</h2>
+<p><span id="seconds">00</span>:<span id="tens">00</span></p>
+<button id="button-start">Start</button>
+<button id="button-stop">Stop</button>
+<button id="button-reset">Reset</button>
+</div>
+
+<%# WHen a user hits stop,that should trigger an event listenern which gets the numbers for minutes, seconds and hours and puts them into the form as a param. %>
+<%# EXAMPLE OF HOW TO GET TIMES FROM THE STOPWATCH BELOW %>
+<%# document.querySelector('#hours').textContent %>
+<%# document.querySelector('#minutes').textContent %>
+<%# document.querySelector('#seconds').textContent %>
 
 
-<%# <%= link_to "Start", start_time_excersise_path %>
-<%# <%= link_to "Stop", stop_time_exercise_path %>
-<%# <%= link_to "Back", challenge_exercises_path(@challenge) %>
+<script defer>
+  var seconds = 00;
+  var tens = 00;
+  var appendTens = document.getElementById("tens")
+  var appendSeconds = document.getElementById("seconds")
+  var buttonStart = document.getElementById('button-start');
+  var buttonStop = document.getElementById('button-stop');
+  var buttonReset = document.getElementById('button-reset');
+  var Interval ;
+
+  buttonStart.onclick = function() {
+
+    clearInterval(Interval);
+     Interval = setInterval(startTimer, 10);
+  }
+
+    buttonStop.onclick = function() {
+       clearInterval(Interval);
+  }
+
+
+  buttonReset.onclick = function() {
+     clearInterval(Interval);
+    tens = "00";
+  	seconds = "00";
+    appendTens.innerHTML = tens;
+  	appendSeconds.innerHTML = seconds;
+  }
+
+
+  function startTimer () {
+    tens++;
+
+    if(tens <= 9){
+      appendTens.innerHTML = "0" + tens;
+    }
+
+    if (tens > 9){
+      appendTens.innerHTML = tens;
+
+    }
+
+    if (tens > 99) {
+      console.log("seconds");
+      seconds++;
+      appendSeconds.innerHTML = "0" + seconds;
+      tens = 0;
+      appendTens.innerHTML = "0" + 0;
+    }
+
+    if (seconds > 9){
+      appendSeconds.innerHTML = seconds;
+    }
+
+  }
+</script>
