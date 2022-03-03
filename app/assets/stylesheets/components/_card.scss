@@ -34,6 +34,18 @@
       color: white;
       text-align: center;
     }
+    .challenge-name {
+      font-family: $header-font;
+    }
+    h6 {
+      color: rgb(120, 114, 114);
+    }
+    .date {
+      color: white;
+    }
+    .price {
+      font-weight: bolder;
+    }
 }
 
 .card-container {

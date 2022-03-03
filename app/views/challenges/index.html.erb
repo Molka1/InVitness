@@ -17,15 +17,15 @@
           <%= image_tag "pexels-photo-1552242.webp" %>
         </div>
         <div class="challenge-length">
-          <h6 class="m-0 p-1">Starts: <%= challenge.start_date %></h6>
+          <h6 class="date m-0 p-1">Starts: <%= challenge.start_date %></h6>
         </div>
         <div class="card-challenge-info">
           <div>
-            <h5><%= challenge.name %></h5>
+            <h5 class="challenge-name"><%= challenge.name %></h5>
             <h6><%= challenge.user.location %></h6>
             <h6><%= challenge.maximum %></h6>
           </div>
-          <h6>Entry: £<%= number_with_precision(challenge.amount, precision: 2) %></h6>
+          <h6 class="price">Entry: £<%= number_with_precision(challenge.amount, precision: 2) %></h6>
         </div>
       </div>
     <% end %>
