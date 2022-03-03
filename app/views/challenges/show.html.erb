@@ -1,21 +1,87 @@
 <%= render 'shared/challenge_navbar' %>
 
-<div class="jbtn-container">
-  <%= simple_form_for [@challenge, @user_challenge] do |f| %>
-    <%= f.button :submit, "Join", class: "join-btn" %>
+<% if @user = current_user %>
+  <div>
+    <br>
+    <br>
+  </div>
+<% else %>
+  <div class="jbtn-container">
+    <%= simple_form_for [@challenge, @user_challenge] do |f| %>
+      <%= f.button :submit, "Join", class: "join-btn" %>
+    <% end %>
   <% end %>
+  </div>
+
+<div class="rules-container">
+  <div class="rules">
+
+    <div class="d-flex justify-content-start align-items-center me-3 my-3">
+      <div class="rule-point-box">
+        <i class="fas fa-calendar px-2 py-0 m-3 rule-points"></i>
+      </div>
+      <div>
+        <%= @challenge.start_date %> - <%= @challenge.end_date %>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-start align-items-center me-3 my-3">
+      <div class="rule-point-box">
+        <i class="fas fa-stopwatch px-2 py-0 m-3 rule-points"></i>
+      </div>
+      <div>
+        <%= @challenge.exercise_length %>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-start align-items-center me-3 my-3">
+      <div class="rule-point-box">
+        <i class="fas fa-running px-2 py-0 m-3 rule-points"></i>
+      </div>
+      <div>
+        <%= @challenge.maximum %>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-start align-items-center me-3 my-3">
+      <div class="rule-point-box">
+        <i class="fas fa-dollar-sign ps-2 pe-3 py-0 m-3 rule-points"></i>
+      </div>
+      <div>
+        <%= @challenge.amount %>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-start align-items-center me-3 my-3">
+      <div class="rule-point-box">
+        <i class="fas fa-camera-retro px-2 py-0 m-3 rule-points"></i>
+      </div>
+      <div>
+        <%= @challenge.proof %>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-start align-items-center me-3 my-3">
+      <div class="rule-point-box">
+        <i class="fas fa-dumbbell px-2 py-0 m-3 rule-points"></i>
+      </div>
+      <div>
+        <%= @challenge.points %>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-start align-items-center me-3 my-3">
+      <div class="rule-point-box">
+        <i class="fas fa-biking px-2 py-0 m-3 rule-points"></i>
+      </div>
+      <div>
+        <% if @challenge.rollover %>
+          There are point rollovers
+        <% else %>
+          There are no point rollovers
+        <% end %>
+      </div>
+    </div>
+
+  </div>
 </div>
-
-<ul>
-  <li><%= @challenge.amount %></li>
-  <li><%= @challenge.start_date %> - <%= @challenge.end_date %></li>
-  <%= @challenge.exercise_length %>
-  <%= @challenge.maximum %>
-  <%= @challenge.proof %>
-  <%= @challenge.points %>
-  <%= @challenge.rollover %>
-</ul>
-
-<%= link_to "See Proofs!", challenge_exercises_path(@challenge) %>
-<%= link_to "Post your proof!", new_exercise_path %>
-<%= link_to "Back", challenges_path %>

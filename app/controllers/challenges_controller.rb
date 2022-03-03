@@ -7,7 +7,7 @@ class ChallengesController < ApplicationController
     # if params[:search][:query].nil?
     #   @challenges = Challenge.where("name ILIKE ?", "%#{params[:search][:query]}%")
     # else
-      @challenges = Challenge.all
+      @challenges = Challenge.all.order("created_at DESC")
     # end
 
     # @my_challenges = Challenge.where(user: current_user)

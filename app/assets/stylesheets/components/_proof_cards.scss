@@ -1,0 +1,54 @@
+.card-proof {
+  position: relative;
+  overflow: hidden;
+  height: 250px;
+  width: 220px;
+  background-color: white;
+  // border-bottom: solid #F9A33F 1px;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  transition: transform .2s;
+    &:hover {
+      transform: scale(1.05);
+    }
+    img {
+      height: 220px;
+      width: 220px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .card-proof-info {
+      height: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      position: relative;
+    }
+    .proof-length {
+      margin-left: 14px;
+      position: absolute;
+      top: -40px;
+      left: 0;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.132);
+      text-align: center;
+      .color-edit {
+        color: $our-orange;
+      }
+    }
+    .proof-name {
+      font-family: $header-font;
+    }
+    .user-proof {
+      color: black;
+    }
+    p {
+      color: rgb(120, 114, 114);
+    }
+}
+
+.card-container-proof {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
