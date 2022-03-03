@@ -3,7 +3,7 @@ class ExercisesController < ApplicationController
   before_action :set_challenge, only: [:index, :edit, :update]
 
   def index
-    @exercises = Exercise.where(challenge: @challenge)
+    @exercises = Exercise.where(challenge: @challenge).order("created_at DESC")
   end
 
   def new
@@ -47,7 +47,6 @@ class ExercisesController < ApplicationController
   def set_challenge
     @challenge = Challenge.find(params[:challenge_id])
   end
-
 
     def start_time
       exercise.update(start_time: Time.now)

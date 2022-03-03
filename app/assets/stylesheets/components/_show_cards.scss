@@ -1,0 +1,25 @@
+.rules {
+  font-family: $main-font;
+  font-weight: bolder;
+}
+
+.rule-points {
+  font-size: larger;
+  background-image: linear-gradient(to right, $our-yellow, $our-orange, $darker-orange, rgb(247, 37, 132));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.rule-point-box {
+  width: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rules-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 445px;
+}
