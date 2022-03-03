@@ -1,31 +1,29 @@
 
 
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon mb-0 sticky" >
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-topborder mb-0 sticky" >
    <div class="container-fluid">
 
-    <%= link_to challenges_path,  class: "navbar-brand" do %>
+    <%= link_to challenges_path,  class: "navbar-brand mx-0" do %>
       <%= image_tag "home.png" %>
     <% end %>
 
-    <%= link_to new_challenge_path, class: "navbar-brand" do %> 
+    <%= link_to new_challenge_path, class: "navbar-brand mx-0" do %>
        <%= image_tag "add.png" %>
     <% end %>
 
-    <%= link_to new_exercise_path, class: "navbar-brand" do %> 
-        <%= image_tag "post.png" %>
+    <%= link_to new_exercise_path, class: "navbar-brand mx-0" do %>
+        <%= image_tag "post.png", id: "bigger-img" %>
     <% end %>
 
-    <%= link_to dashboard_path, class: "navbar-brand" do %> 
+    <%= link_to dashboard_path, class: "navbar-brand mx-0" do %>
         <%= image_tag "gym.png" %>
     <% end %>
 
-    <%= link_to profile_path, class: "navbar-brand" do %> 
+    <%= link_to profile_path, class: "navbar-brand mx-0" do %>
         <%= image_tag "user.png" %>
     <% end %>
 
      </div>
  </div>
 
-    <%# <%=  image_tag "https://kitt.lewagon.com/placeholder/users/molka1", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %> 
-  
-
+    <%# <%=  image_tag "https://kitt.lewagon.com/placeholder/users/molka1", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

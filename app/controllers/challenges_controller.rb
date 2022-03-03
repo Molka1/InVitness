@@ -2,9 +2,15 @@ class ChallengesController < ApplicationController
   before_action :set_challenge, only: [:edit, :update, :show, :destroy, :members, :leaderboard]
 
   def index
-    @challenges = Challenge.where("name ILIKE ?", "%#{params[:search_query]}%")
+    # @challenges = Challenge.where("name ILIKE ?", "%#{params[:search_query]}%")
+    # @challenges = Challenge.where("name ILIKE ?", "%#{params[:search_query]}%")
+    # if params[:search][:query].nil?
+    #   @challenges = Challenge.where("name ILIKE ?", "%#{params[:search][:query]}%")
+    # else
+      @challenges = Challenge.all.order("created_at DESC")
+    # end
 
-    @my_challenges = Challenge.where(user: current_user)
+    # @my_challenges = Challenge.where(user: current_user)
   end
 
   def new
@@ -39,6 +45,7 @@ class ChallengesController < ApplicationController
   end
 
   def members
+    @user_challenges = UserChallenge.select(@challenge)
   end
 
   def leaderboard
@@ -51,6 +58,6 @@ class ChallengesController < ApplicationController
   end
 
   def challenge_params
-    params.require(:challenge).permit(:name, :amount, :start_date, :end_date, :code, :private, :exercise_length, :maximum, :points, :rollover, user: current_user)
+    params.require(:challenge).permit(:name, :amount, :start_date, :end_date, :code, :private, :exercise_length, :maximum, :points, :rollover, :photo)
   end
 end

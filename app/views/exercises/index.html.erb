@@ -1,16 +1,31 @@
 <%= render 'shared/challenge_navbar' %>
 
-<h1>Proof</h1>
-
-<% @exercises.each do |exercise| %>
-  <%= exercise.name %>
-  <%= exercise.user.email %>
-  <%= link_to edit_challenge_exercise_path(@challenge, exercise.id) do %>
-    <i class="far fa-edit"></i>
-  <% end %>
-  <%= link_to exercise_path(exercise.id), method: :delete, data: { confirm: "Are you sure?" } do %>
-    <i class="far fa-trash-alt"></i>
-  <% end %>
-<% end %>
-<br>
-<%= link_to "Back", challenge_path(@challenge) %>
+<div class="card-container-proof">
+  <div class="card-container mb-5 pb-2">
+    <% @exercises.each do |exercise| %>
+      <div class="card-proof m-3">
+        <div class="card-img">
+          <%= image_tag "old_ella_gym.png" %>
+        </div>
+        <div class="card-proof-info">
+          <div>
+            <p class="bold user-proof">@<%= exercise.user.email %></p>
+          </div>
+          <p><%= exercise.name.capitalize %></p>
+          <div class="proof-length">
+            <% if @user = current_user %>
+              <div class="proof-edits">
+                <%= link_to edit_challenge_exercise_path(@challenge, exercise.id) do %>
+                  <i class="far fa-edit color-edit"></i>
+                <% end %>
+                <%= link_to exercise_path(exercise.id), method: :delete, data: { confirm: "Are you sure?" } do %>
+                  <i class="far fa-trash-alt color-edit"></i>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
