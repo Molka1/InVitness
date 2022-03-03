@@ -1,16 +1,14 @@
- <%= render 'shared/challenge_navbar' %>
+<%= render 'shared/challenge_navbar' %>
 
+<div class="jbtn-container">
   <%= simple_form_for [@challenge, @user_challenge] do |f| %>
-    <%= f.button :submit, "Join" %>
+    <%= f.button :submit, "Join", class: "join-btn" %>
   <% end %>
+</div>
 
 <ul>
-  <%= @challenge.name %>
-  <%= @challenge.amount %>
-  <%= @challenge.start_date %>
-  <%= @challenge.end_date %>
-  <%= @challenge.code %>
-  <%= @challenge.private %>
+  <li><%= @challenge.amount %></li>
+  <li><%= @challenge.start_date %> - <%= @challenge.end_date %></li>
   <%= @challenge.exercise_length %>
   <%= @challenge.maximum %>
   <%= @challenge.proof %>

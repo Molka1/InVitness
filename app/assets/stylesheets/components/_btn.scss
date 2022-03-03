@@ -2,3 +2,22 @@
   color: $darker-orange;
   font-size: larger;
 }
+
+.join-btn {
+  border-radius: 10px;
+  background-image: linear-gradient(to right, $our-yellow, $our-orange, $darker-orange, rgb(247, 37, 132));
+  width: 390px;
+  margin: 16px;
+  color: white;
+  font-family: $header-font;
+  font-weight: bold;
+  border: none;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.jbtn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
