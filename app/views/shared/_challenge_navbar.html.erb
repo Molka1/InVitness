@@ -1,4 +1,4 @@
-<div class="banner banner-bg" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "pexels-photo-1552242.webp" %>')">
+<div class="banner banner-bg" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= list.photo.attached? ? (cl_image_tag challenge.photo.key, height: 200, width: 414, crop: :fill) : (image_path "pexels-photo-1552242.webp") %>')
   <div class="container text-center">
     <h1><%= @challenge.name %></h1>
     <p>£<%= number_with_precision(@challenge.amount, precision: 2) %></p>
