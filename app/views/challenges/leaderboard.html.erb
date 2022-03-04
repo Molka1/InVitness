@@ -1,2 +1,15 @@
  <%= render 'shared/challenge_navbar' %>
 <h1>Leaderboard</h1>
+
+<% @user_challenges.each do |member| %>
+  <%= member.user.username %>
+  <br>
+
+<% end %>
+
+
+ <%# <% @exercises.each do |exercise| %> %>
+   <%# <% Exercise.where(user: exercise.user.id, challenge: @challenge.id).group(:user_id).each do |e| %> %>
+    <%# <%= e.user.username %> %>
+   <%# <% end %> %>
+ <%# <% end %> %>
