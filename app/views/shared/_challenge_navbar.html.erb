@@ -1,15 +1,17 @@
-<div class="banner banner-bg" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "pexels-photo-1552242.webp" %>')">
-  <div class="container text-center">
-    <h1><%= @challenge.name %></h1>
-    <p>£<%= number_with_precision(@challenge.amount, precision: 2) %></p>
-    <p>By @<%= @challenge.user.username %></p>
+<div class="sticky-top">
+  <div class="banner banner-bg" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "pexels-photo-1552242.webp" %>')">
+    <div class="container text-center">
+      <h1><%= @challenge.name %></h1>
+      <p>£<%= number_with_precision(@challenge.amount, precision: 2) %></p>
+      <p>By @<%= @challenge.user.username %></p>
+    </div>
   </div>
-</div>
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-bottomborder mx-2">
-  <div class="container-fluid">
-    <%= link_to "Rules", challenge_path(@challenge), class: "nav-link" %>
-    <%= link_to "Members", members_path(@challenge), class: "nav-link" %>
-    <%= link_to "Proof", challenge_exercises_path(@challenge), class: "nav-link" %>
-    <%= link_to "Leaderboard", leaderboard_path(@challenge), class: "nav-link" %>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-bottomborder mx-2">
+    <div class="container-fluid">
+      <%= link_to "Rules", challenge_path(@challenge), class: "nav-link" %>
+      <%= link_to "Members", members_path(@challenge), class: "nav-link" %>
+      <%= link_to "Proof", challenge_exercises_path(@challenge), class: "nav-link" %>
+      <%= link_to "Leaderboard", leaderboard_path(@challenge), class: "nav-link" %>
+    </div>
   </div>
 </div>

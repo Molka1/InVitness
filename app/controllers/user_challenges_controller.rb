@@ -2,8 +2,8 @@ class UserChallengesController < ApplicationController
   # before_action :set_challenge, only: [:create]
 
   def create
-    @user_challenge = UserChallenge.new(user_challenge_params)
     @challenge = Challenge.find(params[:challenge_id])
+    @user_challenge = UserChallenge.new(challenge: @challenge, user: current_user)
     @user_challenge.user = current_user
     @user_challenge.challenge = @challenge
     if @user_challenge.save!
