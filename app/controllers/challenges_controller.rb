@@ -19,6 +19,7 @@ class ChallengesController < ApplicationController
 
   def show
     @user_challenge = UserChallenge.new
+    @my_user_challenge = UserChallenge.find_by(challenge: @challenge, user: current_user)
   end
 
   def create
@@ -45,10 +46,15 @@ class ChallengesController < ApplicationController
   end
 
   def members
-    @user_challenges = UserChallenge.select(@challenge.id)
+    @user_challenges = UserChallenge.where(challenge: @challenge.id)
+    @my_user_challenge = UserChallenge.find_by(user: current_user)
+    @owner = User.find(@challenge.user_id)
   end
 
   def leaderboard
+    @user_challenges = UserChallenge.where(challenge: @challenge.id)
+    @exercises = Exercise.all
+    # @exercises = Exercise.where(challenge: @challenge.id)
   end
 
   private
