@@ -14,11 +14,11 @@
     <%= link_to  challenge_path(challenge) do %>
       <div class="card-challenge m-3">
         <div class="card-img">
-         <%if challenge.photo.attached? %> 
-           <%= cl_image_tag challenge.photo.key, height: 160, width: 384, crop: :fill, class: "main-img" %>
-            <% else %> 
-            <%= image_tag "pexels-photo-1552242.webp" %> 
-           <% end %> 
+         <% if challenge.photo.attached? %>
+            <%= cl_image_tag challenge.photo.key, height: 160, width: 384, crop: :fill, class: "main-img" %>
+          <% else %>
+            <%= image_tag "pexels-photo-1552242.webp" %>
+          <% end %>
         </div>
         <div class="challenge-length">
           <h6 class="date m-0 p-1">Starts: <%= challenge.start_date %></h6>

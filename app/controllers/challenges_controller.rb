@@ -45,7 +45,7 @@ class ChallengesController < ApplicationController
   end
 
   def members
-    @user_challenges = UserChallenge.select(@challenge)
+    @user_challenges = UserChallenge.select(@challenge.id)
   end
 
   def leaderboard
