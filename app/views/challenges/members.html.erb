@@ -2,23 +2,23 @@
 
 <% if @challenge.user_id != current_user %>
   <div class="user-container d-flex justify-content-start align-items-center owner px-3">
-      <%= image_tag "user.png", class: "avatar-large m-3", alt: "avatar-large" %>
-      <h6 class="m-3 bold">@<%= @owner.username %></h6>
+    <%= image_tag "user.png", class: "avatar-large m-3", alt: "avatar-large" %>
+    <h6 class="m-3 bold">@<%= @owner.username %></h6>
   </div>
 <% end %>
 
 <%  if !@my_user_challenge.nil? && @my_user_challenge.user == current_user %>
   <div class="user-container d-flex justify-content-start align-items-center me px-3">
-      <%= image_tag "user.png", class: "avatar-large m-3", alt: "avatar-large" %>
-      <h6 class="m-3 bold">@<%= @my_user_challenge.user.username %></h6>
+    <%= image_tag "user.png", class: "avatar-large m-3", alt: "avatar-large" %>
+    <h6 class="m-3 bold">@<%= @my_user_challenge.user.username %></h6>
   </div>
 <% end %>
 
-<% @user_challenges.each do |member| %>
-  <div class="user-container d-flex justify-content-start align-items-center px-3">
-    <% if member.user != current_user %>
-      <%= image_tag "user.png", class: "avatar-large m-3", alt: "avatar-large" %>
-      <h6 class="m-3 bold">@<%= member.user.username %></h6>
-    <% end %>
-  </div>
-<% end %>
+<div class="user-container d-flex justify-content-start align-items-center px-3">
+  <% @user_challenges.each do |member| %>
+    <% next if member.user == current_user %>
+    <% next if member.user == @owner %>
+    <%= image_tag "user.png", class: "avatar-large m-3", alt: "avatar-large" %>
+    <h6 class="m-3 bold">@<%= member.user.username %></h6>
+  <% end %>
+</div>
