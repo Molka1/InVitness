@@ -5,15 +5,19 @@
     <% @exercises.each do |exercise| %>
       <div class="card-proof m-3">
         <div class="card-img">
-          <%= image_tag "old_ella_gym.png" %>
+        <% if exercise.photo.attached? %>
+            <%= cl_image_tag exercise.photo.key, height: 220, width: 220, crop: :fill%>
+          <% else %>
+            <%= image_tag "pexels-photo-1552242.webp" %>
+          <% end %>
         </div>
         <div class="card-proof-info">
           <div>
-            <p class="bold user-proof">@<%= exercise.user.email %></p>
+            <p class="bold user-proof">@<%= exercise.user.username %></p>
           </div>
           <p><%= exercise.name.capitalize %></p>
           <div class="proof-length">
-            <% if @user = current_user %>
+            <% if exercise.user == current_user %>
               <div class="proof-edits">
                 <%= link_to edit_challenge_exercise_path(@challenge, exercise.id) do %>
                   <i class="far fa-edit color-edit"></i>

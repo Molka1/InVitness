@@ -1,2 +1,47 @@
- <%= render 'shared/challenge_navbar' %>
-<h1>Leaderboard</h1>
+<%= render 'shared/challenge_navbar' %>
+
+<div class="user-container d-flex justify-content-end align-items-center title px-3">
+    <h6 class="m-4 bold">Points</h6>
+</div>
+
+<%# <% if @challenge.user_id != current_user %>
+  <%# <div class="user-container d-flex justify-content-between align-items-center owner px-3"> %>
+
+      <%# <div class="d-flex justify-content-start align-items-center"> %>
+        <%# <%= image_tag "user.png", class: "avatar-large m-3", alt: "avatar-large" %>
+        <%# <h6 class="m-3 bold">@<%= @owner.username %>
+      <%# </div> %>
+
+      <%# <div class="d-flex justify-content-end align-items-center"> %>
+        <%# <h6 class="m-4 bold"><%= @owner.exercises.count %>
+      <%# </div> %>
+  <%# </div> %>
+<%# <% end %>
+
+<% if !@my_user_challenge.nil? && @my_user_challenge.user == current_user %>
+  <div class="user-container d-flex justify-content-between align-items-center me px-3">
+
+      <div class="d-flex justify-content-start align-items-center">
+        <%= image_tag "user.png", class: "avatar-large m-3", alt: "avatar-large" %>
+        <h6 class="m-3 bold">@<%= @my_user_challenge.user.username %></h6>
+      </div>
+
+      <div class="d-flex justify-content-end align-items-center">
+        <h6 class="m-4 bold"><%= @my_user_challenge.user.exercises.count %></h6>
+      </div>
+  </div>
+<% end %>
+
+<div class="user-container d-flex justify-content-between align-items-center px-3">
+  <% @user_challenges.each do |member| %>
+    <% next if member.user == current_user %>
+    <div class="d-flex justify-content-start align-items-center">
+      <%= image_tag "user.png", class: "avatar-large m-3", alt: "avatar-large" %>
+      <h6 class="m-3 bold">@<%= member.user.username %></h6>
+    </div>
+
+    <div class="d-flex justify-content-end align-items-center">
+      <h6 class="m-4 bold"><%= member.points %></h6>
+    </div>
+  <% end %>
+</div>

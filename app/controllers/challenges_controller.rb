@@ -2,14 +2,11 @@ class ChallengesController < ApplicationController
   before_action :set_challenge, only: [:edit, :update, :show, :destroy, :members, :leaderboard]
 
   def index
-    # @challenges = Challenge.where("name ILIKE ?", "%#{params[:search_query]}%")
-    # @challenges = Challenge.where("name ILIKE ?", "%#{params[:search_query]}%")
-    # if params[:search][:query].nil?
-    #   @challenges = Challenge.where("name ILIKE ?", "%#{params[:search][:query]}%")
-    # else
+    if params[:query].present?
+      @challenges = Challenge.where("name ILIKE ?", "%#{params[:query]}%")
+    else
       @challenges = Challenge.all.order("created_at DESC")
-    # end
-
+    end
     # @my_challenges = Challenge.where(user: current_user)
   end
 
@@ -19,12 +16,14 @@ class ChallengesController < ApplicationController
 
   def show
     @user_challenge = UserChallenge.new
+    @my_user_challenge = UserChallenge.find_by(challenge: @challenge, user: current_user)
   end
 
   def create
     @challenge = Challenge.new(challenge_params)
     @challenge.user = current_user
     if @challenge.save!
+      UserChallenge.create(user: current_user, challenge: @challenge)
       redirect_to challenge_path(@challenge), notice: 'Your challenge has beed added!'
     else
       render :new
@@ -45,10 +44,16 @@ class ChallengesController < ApplicationController
   end
 
   def members
-    @user_challenges = UserChallenge.select(@challenge)
+    @user_challenges = UserChallenge.where(challenge: @challenge.id)
+    @my_user_challenge = UserChallenge.find_by(user: current_user)
+    @owner = User.find(@challenge.user_id)
   end
 
   def leaderboard
+    @user_challenges = UserChallenge.where(challenge: @challenge.id).order("points DESC")
+    @my_user_challenge = UserChallenge.find_by(user: current_user)
+    @owner = User.find(@challenge.user_id)
+    points
   end
 
   private
@@ -59,5 +64,16 @@ class ChallengesController < ApplicationController
 
   def challenge_params
     params.require(:challenge).permit(:name, :amount, :start_date, :end_date, :code, :private, :exercise_length, :maximum, :points, :rollover, :photo)
+  end
+
+  def points
+    @user_challenge = UserChallenge.where(challenge: @challenge.id)
+    @user_challenge.each do |member|
+      @user = member.user
+      @challenge = member.challenge
+      @exercises = Exercise.where(user: @user, challenge: @challenge)
+      member.points = @exercises.count
+      member.save!
+    end
   end
 end

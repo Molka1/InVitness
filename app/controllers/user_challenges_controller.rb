@@ -1,8 +1,9 @@
 class UserChallengesController < ApplicationController
-  before_action :set_challenge, only: [:create]
+  # before_action :set_challenge, only: [:create]
 
   def create
-    @user_challenge = UserChallenge.new
+    @challenge = Challenge.find(params[:challenge_id])
+    @user_challenge = UserChallenge.new(challenge: @challenge, user: current_user)
     @user_challenge.user = current_user
     @user_challenge.challenge = @challenge
     if @user_challenge.save!
@@ -20,7 +21,11 @@ class UserChallengesController < ApplicationController
 
   private
 
-  def set_challenge
-    @challenge = Challenge.find(params[:challenge_id])
+  def user_challenge_params
+    params.require(:user_challenge).permit(:challenge, user: current_user)
   end
+
+  # def set_challenge
+  #   @challenge = Challenge.find(params[:challenge_id])
+  # end
 end

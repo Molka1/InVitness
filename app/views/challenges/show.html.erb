@@ -1,22 +1,30 @@
 <%= render 'shared/challenge_navbar' %>
 
-<% if @user = current_user %>
+
+<% if !@my_user_challenge.nil? %>
+  <% if @my_user_challenge.user == current_user %>
+    <div>
+    <br>
+    <br>
+  </div>
+  <% end %>
+<% elsif @challenge.user == current_user %>
   <div>
     <br>
     <br>
   </div>
 <% else %>
-  <div class="jbtn-container">
+   <div class="jbtn-container">
     <%= simple_form_for [@challenge, @user_challenge] do |f| %>
       <%= f.button :submit, "Join", class: "join-btn" %>
     <% end %>
-  <% end %>
   </div>
+<% end %>
 
 <div class="rules-container">
   <div class="rules">
 
-    <div class="d-flex justify-content-start align-items-center me-3 my-3">
+    <div class="d-flex justify-content-start align-items-center me-3 my-2">
       <div class="rule-point-box">
         <i class="fas fa-calendar px-2 py-0 m-3 rule-points"></i>
       </div>
@@ -25,7 +33,7 @@
       </div>
     </div>
 
-    <div class="d-flex justify-content-start align-items-center me-3 my-3">
+    <div class="d-flex justify-content-start align-items-center me-3 my-2">
       <div class="rule-point-box">
         <i class="fas fa-stopwatch px-2 py-0 m-3 rule-points"></i>
       </div>
@@ -34,7 +42,7 @@
       </div>
     </div>
 
-    <div class="d-flex justify-content-start align-items-center me-3 my-3">
+    <div class="d-flex justify-content-start align-items-center me-3 my-2">
       <div class="rule-point-box">
         <i class="fas fa-running px-2 py-0 m-3 rule-points"></i>
       </div>
@@ -43,16 +51,16 @@
       </div>
     </div>
 
-    <div class="d-flex justify-content-start align-items-center me-3 my-3">
+    <div class="d-flex justify-content-start align-items-center me-3 my-2">
       <div class="rule-point-box">
         <i class="fas fa-dollar-sign ps-2 pe-3 py-0 m-3 rule-points"></i>
       </div>
       <div>
-        <%= @challenge.amount %>
+        £<%= number_with_precision(@challenge.amount, precision: 2) %>
       </div>
     </div>
 
-    <div class="d-flex justify-content-start align-items-center me-3 my-3">
+    <div class="d-flex justify-content-start align-items-center me-3 my-2">
       <div class="rule-point-box">
         <i class="fas fa-camera-retro px-2 py-0 m-3 rule-points"></i>
       </div>
@@ -61,7 +69,7 @@
       </div>
     </div>
 
-    <div class="d-flex justify-content-start align-items-center me-3 my-3">
+    <div class="d-flex justify-content-start align-items-center me-3 my-2">
       <div class="rule-point-box">
         <i class="fas fa-dumbbell px-2 py-0 m-3 rule-points"></i>
       </div>
@@ -70,7 +78,7 @@
       </div>
     </div>
 
-    <div class="d-flex justify-content-start align-items-center me-3 my-3">
+    <div class="d-flex justify-content-start align-items-center me-3 my-2">
       <div class="rule-point-box">
         <i class="fas fa-biking px-2 py-0 m-3 rule-points"></i>
       </div>
