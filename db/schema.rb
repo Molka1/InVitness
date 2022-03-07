@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_03_122444) do
+ActiveRecord::Schema.define(version: 2022_03_07_122608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,14 +50,14 @@ ActiveRecord::Schema.define(version: 2022_03_03_122444) do
     t.date "end_date"
     t.string "code"
     t.bigint "user_id", null: false
-    t.boolean "private", default: false
+    t.boolean "private"
     t.string "exercise_length"
     t.string "maximum"
     t.string "points"
-    t.boolean "rollover", default: false
+    t.boolean "rollover"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "active", default: false
+    t.boolean "active"
     t.string "proof"
     t.index ["user_id"], name: "index_challenges_on_user_id"
   end
@@ -94,6 +94,9 @@ ActiveRecord::Schema.define(version: 2022_03_03_122444) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "username"
     t.string "location"
+    t.string "name"
+    t.integer "age"
+    t.string "favourite"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
