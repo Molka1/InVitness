@@ -1,5 +1,3 @@
-
-
 <div class="sticky-top">
   <div class="banner banner-bg" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('<%= @challenge.photo.attached? ? (cl_image_path @challenge.photo.key, height: 200, crop: :fill) : (image_path 'pexels-photo-1552242.webp')%>')">
     <div class="container text-center chatbtn-c">
@@ -26,11 +24,11 @@
     </div>
   </div>
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-bottomborder mx-2">
-      <div class="container-fluid">
-        <%= link_to "Rules", challenge_path(@challenge), class: "nav-link" %>
+      <div class="container-fluid" >
+        <%= link_to "Rules", challenge_path(@challenge), class: "nav-link active-tab" %>
         <%= link_to "Members", members_path(@challenge), class: "nav-link" %>
         <%= link_to "Proof", challenge_exercises_path(@challenge), class: "nav-link" %>
-        <%= link_to "Leaderboard", leaderboard_path(@challenge), class: "nav-link" %>
+        <%= link_to "Leaderboard", leaderboard_path(@challenge), class: "nav-link"  %>
       </div>
     </div>
 </div>

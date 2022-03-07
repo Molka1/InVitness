@@ -1,8 +1,8 @@
 .card-proof {
   position: relative;
   overflow: hidden;
-  height: 250px;
-  width: 220px;
+  height: 360px;
+  width: 320px;
   background-color: white;
   // border-bottom: solid #F9A33F 1px;
   // box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -11,8 +11,8 @@
       transform: scale(1.05);
     }
     img {
-      height: 220px;
-      width: 220px;
+      height: 320px;
+      width: 320px;
       object-fit: cover;
       border-radius: 5px;
     }

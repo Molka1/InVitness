@@ -1,28 +1,48 @@
-<%= render 'shared/challenge_navbar' %>
+<div class="sticky-top">
+  <div class="banner banner-bg" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('<%= @challenge.photo.attached? ? (cl_image_path @challenge.photo.key, height: 200, crop: :fill) : (image_path 'pexels-photo-1552242.webp')%>')">
+    <div class="container text-center chatbtn-c">
+      <h1><%= @challenge.name %></h1>
+      <p>£<%= number_with_precision(@challenge.amount, precision: 2) %></p>
+      <p>By @<%= @challenge.user.username %></p>
+      <% if !@my_user_challenge.nil? %>
+        <% if @my_user_challenge.user == current_user %>
+          <%= link_to chatroom_path(@challenge.chatrooms.first) do %>
+            <div class="chat-bg">
+              <i class="fas fa-envelope m-0 chatbtn"></i>
+            </div>
+          <% end %>
+        <% end %>
+      <% elsif @challenge.user == current_user %>
+        <div>
+          <br>
+        </div>
+      <% else %>
+        <div>
+          <br>
+        </div>
+      <% end %>
+    </div>
+  </div>
+    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-bottomborder mx-2">
+      <div class="container-fluid" >
+        <%= link_to "Rules", challenge_path(@challenge), class: "nav-link" %>
+        <%= link_to "Members", members_path(@challenge), class: "nav-link" %>
+        <%= link_to "Proof", challenge_exercises_path(@challenge), class: "nav-link" %>
+        <%= link_to "Leaderboard", leaderboard_path(@challenge), class: "nav-link active-tab" %>
+      </div>
+    </div>
+</div>
+
 
 <div class="user-container d-flex justify-content-end align-items-center title px-3">
     <h6 class="m-4 bold">Points</h6>
 </div>
 
-<%# <% if @challenge.user_id != current_user %>
-  <%# <div class="user-container d-flex justify-content-between align-items-center owner px-3"> %>
-
-      <%# <div class="d-flex justify-content-start align-items-center"> %>
-        <%# <%= image_tag "user.png", class: "avatar-large m-3", alt: "avatar-large" %>
-        <%# <h6 class="m-3 bold">@<%= @owner.username %>
-      <%# </div> %>
-
-      <%# <div class="d-flex justify-content-end align-items-center"> %>
-        <%# <h6 class="m-4 bold"><%= @owner.exercises.count %>
-      <%# </div> %>
-  <%# </div> %>
-<%# <% end %>
-
 <% if !@my_user_challenge.nil? && @my_user_challenge.user == current_user %>
   <div class="user-container d-flex justify-content-between align-items-center me px-3">
 
       <div class="d-flex justify-content-start align-items-center">
-        <%= image_tag "user.png", class: "avatar-large m-3", alt: "avatar-large" %>
+       <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/<%= @my_user_challenge.user.username %>">
         <h6 class="m-3 bold">@<%= @my_user_challenge.user.username %></h6>
       </div>
 
@@ -32,16 +52,18 @@
   </div>
 <% end %>
 
-<div class="user-container d-flex justify-content-between align-items-center px-3">
+<div class="user-container">
   <% @user_challenges.each do |member| %>
     <% next if member.user == current_user %>
-    <div class="d-flex justify-content-start align-items-center">
-      <%= image_tag "user.png", class: "avatar-large m-3", alt: "avatar-large" %>
-      <h6 class="m-3 bold">@<%= member.user.username %></h6>
-    </div>
+    <div class="leaderboard-users d-flex justify-content-between align-items-center px-3">
+      <div class="d-flex justify-content-start align-items-center">
+       <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/<%= member.user.username %>">
+        <h6 class="m-3 bold">@<%= member.user.username %></h6>
+      </div>
 
-    <div class="d-flex justify-content-end align-items-center">
-      <h6 class="m-4 bold"><%= member.points %></h6>
+      <div class="d-flex justify-content-end align-items-center">
+        <h6 class="m-4 bold"><%= member.points %></h6>
+      </div>
     </div>
   <% end %>
 </div>

@@ -1,4 +1,19 @@
-<%= render 'shared/profile_navbar' %>
+<div class="sticky-top">
+  <div class="banner banner-bg py-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "pexels-photo-1552242.webp" %>')">
+    <div class="container text-center">
+     <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/<%= current_user.username %>">
+      <h1>@<%= current_user.username %></h1>
+    </div>
+  </div>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-bottomborder mx-2">
+    <div class="container-fluid">
+      <%= link_to "About", profile_path, class: "nav-link active-tab" %>
+      <%= link_to "My Challenges", dashboard_path, class: "nav-link" %>
+      <%= link_to "History", history_path, class: "nav-link" %>
+      <%= link_to "Stats", stats_path, class: "nav-link" %>
+    </div>
+  </div>
+</div>
 
 <div class="rules-container">
   <div class="rules">
@@ -9,7 +24,7 @@
         <h2 class="px-2 py-0 m-3 rule-points">Name:</h2>
       </div>
       <div>
-        <%= current_user.username %>
+        <%= current_user.name %>
       </div>
     </div>
 
@@ -18,7 +33,7 @@
         <h2 class="px-2 py-0 m-3 rule-points">Age:</h2>
       </div>
       <div>
-        <%= current_user.email %>
+        <%= current_user.age %>
       </div>
     </div>
 
@@ -45,7 +60,7 @@
         <h2 class="px-2 py-0 m-3 rule-points">Favourite Exercise:</h2>
       </div>
       <div>
-        <%= current_user.email %>
+        <%= current_user.favourite %>
       </div>
     </div>
 
