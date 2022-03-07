@@ -1,0 +1,8 @@
+<div id="message-<%= message.id %>">
+  <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/<%= message.user.username %>" />
+  <small>
+    <strong><%= message.user.username %></strong>
+    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+  </small>
+  <p><%= message.content %></p>
+</div>
