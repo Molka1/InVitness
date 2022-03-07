@@ -48,6 +48,17 @@ class ChallengesController < ApplicationController
     @user_challenges = UserChallenge.where(challenge: @challenge.id)
     @my_user_challenge = UserChallenge.find_by(user: current_user)
     @owner = User.find(@challenge.user_id)
+
+    @users = User.geocoded
+
+    @markers = @users.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude,
+        # info_window: render_to_string(partial: "info_window", locals: { user: members }),
+        image_url: helpers.asset_url("geocoding_marker.png")
+      }
+    end
   end
 
   def leaderboard

@@ -114,6 +114,8 @@ ActiveRecord::Schema.define(version: 2022_03_07_131129) do
     t.string "username"
     t.string "location"
     t.string "name"
+    t.float "latitude"
+    t.float "longitude"
     t.integer "age"
     t.string "favourite"
     t.index ["email"], name: "index_users_on_email", unique: true
