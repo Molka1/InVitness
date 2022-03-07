@@ -7,4 +7,7 @@ class User < ApplicationRecord
   has_many :challenges, dependent: :destroy
   has_many :exercises,  dependent: :destroy
   has_many :user_challenges, dependent: :destroy
+
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
 end
