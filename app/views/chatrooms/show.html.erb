@@ -12,8 +12,10 @@
     <% @chatroom.messages.each do |message| %>
       <% if message.user == current_user %>
       <div class="text-end">
+
         <%= render "messages/message", message: message %>
       </div>
+
       <% else %>
         <%= render "messages/message", message: message %>
       <% end %>
