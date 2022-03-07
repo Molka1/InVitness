@@ -5,9 +5,9 @@ class ChallengesController < ApplicationController
     # @challenges = Challenge.where("name ILIKE ?", "%#{params[:search_query]}%")
     # @challenges = Challenge.where("name ILIKE ?", "%#{params[:search_query]}%")
     # if params[:search][:query].nil?
-    #   @challenges = Challenge.where("name ILIKE ?", "%#{params[:search][:query]}%")
-    # else
       @challenges = Challenge.all.order("created_at DESC")
+    # else
+    #   @challenges = Challenge.where("name ILIKE ?", "%#{params[:search][:query]}%")
     # end
 
     # @my_challenges = Challenge.where(user: current_user)
@@ -53,8 +53,6 @@ class ChallengesController < ApplicationController
 
   def leaderboard
     @user_challenges = UserChallenge.where(challenge: @challenge.id)
-    @exercises = Exercise.all
-    # @exercises = Exercise.where(challenge: @challenge.id)
   end
 
   private

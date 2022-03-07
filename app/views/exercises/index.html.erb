@@ -17,7 +17,7 @@
           </div>
           <p><%= exercise.name.capitalize %></p>
           <div class="proof-length">
-            <% if @user = current_user %>
+            <% if exercise.user == current_user %>
               <div class="proof-edits">
                 <%= link_to edit_challenge_exercise_path(@challenge, exercise.id) do %>
                   <i class="far fa-edit color-edit"></i>
