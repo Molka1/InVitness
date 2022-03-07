@@ -95,9 +95,9 @@ ActiveRecord::Schema.define(version: 2022_03_07_122608) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "username"
     t.string "location"
+    t.string "name"
     t.float "latitude"
     t.float "longitude"
-    t.string "name"
     t.integer "age"
     t.string "favourite"
     t.index ["email"], name: "index_users_on_email", unique: true

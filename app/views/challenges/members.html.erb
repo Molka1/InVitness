@@ -1,28 +1,34 @@
- <%= render 'shared/challenge_navbar' %>
+<div class="d-flex flex-column">
+  <div class="div">
+    <%= render 'shared/challenge_navbar' %>
 
-<% if @challenge.user_id != current_user %>
-  <div class="user-container d-flex justify-content-start align-items-center owner px-3">
-    <%= image_tag "user.png", class: "avatar-large m-3", alt: "avatar-large" %>
-    <h6 class="m-3 bold">@<%= @owner.username %></h6>
+    <% if @challenge.user_id != current_user %>
+      <div class="user-container d-flex justify-content-start align-items-center owner px-3">
+        <%= image_tag "user.png", class: "avatar-large m-3", alt: "avatar-large" %>
+        <h6 class="m-3 bold">@<%= @owner.username %></h6>
+      </div>
+    <% end %>
+    <%  if !@my_user_challenge.nil? && @my_user_challenge.user == current_user %>
+      <div class="user-container d-flex justify-content-start align-items-center me px-3">
+        <%= image_tag "user.png", class: "avatar-large m-3", alt: "avatar-large" %>
+        <h6 class="m-3 bold">@<%= @my_user_challenge.user.username %></h6>
+      </div>
+    <% end %>
+    <div class="user-container d-flex justify-content-start align-items-center px-3">
+      <% @user_challenges.each do |member| %>
+        <% next if member.user == current_user %>
+        <% next if member.user == @owner %>
+        <%= image_tag "user.png", class: "avatar-large m-3", alt: "avatar-large" %>
+        <h6 class="m-3 bold">@<%= member.user.username %></h6>
+      <% end %>
+    </div>
   </div>
-<% end %>
-<%  if !@my_user_challenge.nil? && @my_user_challenge.user == current_user %>
-  <div class="user-container d-flex justify-content-start align-items-center me px-3">
-    <%= image_tag "user.png", class: "avatar-large m-3", alt: "avatar-large" %>
-    <h6 class="m-3 bold">@<%= @my_user_challenge.user.username %></h6>
+
+  <div class="flex-grow-1">
+    <div id="map" style="width: 100%; height: 300px;"
+      data-controller="mapbox"
+      data-mapbox-markers-value="<%= @markers.to_json %>"
+      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   </div>
-<% end %>
-<div class="user-container d-flex justify-content-start align-items-center px-3">
-  <% @user_challenges.each do |member| %>
-    <% next if member.user == current_user %>
-    <% next if member.user == @owner %>
-    <%= image_tag "user.png", class: "avatar-large m-3", alt: "avatar-large" %>
-    <h6 class="m-3 bold">@<%= member.user.username %></h6>
-  <% end %>
+
 </div>
-
-
-<div style="width: 100%; height: 600px;"
-  data-controller="mapbox"
-  data-mapbox-markers-value="<%= @markers.to_json %>"
-  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
