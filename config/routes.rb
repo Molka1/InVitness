@@ -12,11 +12,13 @@ Rails.application.routes.draw do
   resources :challenges do
     resources :user_challenges, only: [:index, :create, :show]
     resources :exercises, only: [:index, :edit, :update]
-    resources :chatroom, only: [:create, :show]
     # get :search, on: :collection
   end
   resources :user_challenges, only: [:destroy]
   resources :exercises, only: [:destroy, :create, :new]
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

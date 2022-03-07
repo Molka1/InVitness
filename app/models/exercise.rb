@@ -10,5 +10,4 @@ class Exercise < ApplicationRecord
   validates :content, presence: true
   validates :photo, presence: true
   validates :challenge, presence: true
-  
 end
