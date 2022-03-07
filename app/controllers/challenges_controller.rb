@@ -2,14 +2,11 @@ class ChallengesController < ApplicationController
   before_action :set_challenge, only: [:edit, :update, :show, :destroy, :members, :leaderboard]
 
   def index
-    # @challenges = Challenge.where("name ILIKE ?", "%#{params[:search_query]}%")
-    # @challenges = Challenge.where("name ILIKE ?", "%#{params[:search_query]}%")
-    # if params[:search][:query].nil?
+    if params[:query].present?
+      @challenges = Challenge.where("name ILIKE ?", "%#{params[:query]}%")
+    else
       @challenges = Challenge.all.order("created_at DESC")
-    # else
-    #   @challenges = Challenge.where("name ILIKE ?", "%#{params[:search][:query]}%")
-    # end
-
+    end
     # @my_challenges = Challenge.where(user: current_user)
   end
 

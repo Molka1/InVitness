@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :user_challenges, only: [:index, :create, :show]
     resources :exercises, only: [:index, :edit, :update]
     resources :chatroom, only: [:create, :show]
+    # get :search, on: :collection
   end
   resources :user_challenges, only: [:destroy]
   resources :exercises, only: [:destroy, :create, :new]
