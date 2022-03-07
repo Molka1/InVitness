@@ -3,16 +3,26 @@
 
 <% if !@my_user_challenge.nil? %>
   <% if @my_user_challenge.user == current_user %>
+    <%# <%= link_to chatroom_path(@challenge.chatrooms.first) do %>
+      <%# <div class="chat-bg"> %>
+        <%# <i class="fas fa-envelope pe-5 pt-3 chatbtn"></i> %>
+      <%# </div> %>
+    <%# <% end %>
     <div>
-    <br>
-    <br>
-  </div>
+      <br>
+      <br>
+    </div>
   <% end %>
 <% elsif @challenge.user == current_user %>
+  <%# <%= link_to chatroom_path(@challenge.chatrooms.first) do %>
+    <%# <div class="chat-bg"> %>
+      <%# <i class="fas fa-envelope pe-5 pt-3 chatbtn"></i> %>
+    <%# </div> %>
+  <%# <% end %>
   <div>
-    <br>
-    <br>
-  </div>
+      <br>
+      <br>
+    </div>
 <% else %>
    <div class="jbtn-container">
     <%= simple_form_for [@challenge, @user_challenge] do |f| %>
