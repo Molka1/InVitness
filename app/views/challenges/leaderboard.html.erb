@@ -1,15 +1,26 @@
  <%= render 'shared/challenge_navbar' %>
 <h1>Leaderboard</h1>
 
-<% @user_challenges.each do |member| %>
-  <%= member.user.username %>
-  <br>
+<div class="d-flex">
+  <div>
+    <% @user_challenges.each do |member| %>
+      <%= member.user.username %>
+      <br>
+    <% end %>
+  </div>
 
-<% end %>
+  <div>
+    <% @user_challenges.each do |member| %>
+      <%= member.user.exercises.count %>
+      <br>
+    <% end %>
+  </div>
+  </div>
+</div>
 
 
  <%# <% @exercises.each do |exercise| %>
-   <%# <% Exercise.where(user: exercise.user.id, challenge: @challenge.id).group(:user_id).each do |e| %> %>
+   <%# <% Exercise.where(user: exercise.user.id, challenge: @challenge.id).group(:user_id).each do |e| %>
     <%# <%= e.user.username %>
    <%# <% end %>
  <%# <% end %>
