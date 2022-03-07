@@ -24,6 +24,7 @@ class ChallengesController < ApplicationController
     @challenge.user = current_user
     if @challenge.save!
       UserChallenge.create(user: current_user, challenge: @challenge)
+      Chatroom.create!(name: @challenge.name, challenge: @challenge)
       redirect_to challenge_path(@challenge), notice: 'Your challenge has beed added!'
     else
       render :new

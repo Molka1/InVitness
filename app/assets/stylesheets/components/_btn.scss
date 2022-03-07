@@ -21,3 +21,61 @@
   justify-content: center;
   align-items: center;
 }
+
+.chatbtn {
+  text-decoration: none;
+  padding: 3px;
+  padding-left: 6px;
+  padding-right: 6px;
+  font-size: 30px;
+  border-radius: 7px;
+  color: rgb(255, 255, 255);
+  background-image: linear-gradient(to right, $our-yellow, $our-orange, $darker-orange, rgb(247, 37, 132));
+  // -webkit-background-clip: text;
+  // -webkit-text-fill-color: transparent;
+  &:hover {
+    text-decoration: none;
+    font-size: larger;
+    background-image: linear-gradient(to right, $our-yellow, $our-orange, $darker-orange, rgb(247, 37, 132));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.chatbtn-c {
+  position: relative;
+}
+
+.chat-bg {
+  border-radius: 5px;
+  // background-color: rgba(255, 255, 255, 0.434);
+  position: absolute;
+  top: 85px;
+  left: 320px;
+}
+
+.chat-back {
+  text-decoration: none;
+  background-image: linear-gradient(to right, $our-yellow, $our-orange, $darker-orange, rgb(247, 37, 132));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  &:hover {
+    text-decoration: none;
+    background-image: linear-gradient(to right, $our-yellow, $our-orange, $darker-orange, rgb(247, 37, 132));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.send-btn {
+  border-radius: 7px;
+  background-image: linear-gradient(to right, $our-yellow, $our-orange, $darker-orange, rgb(247, 37, 132));
+  color: white;
+  font-family: $header-font;
+  font-weight: bold;
+  border: none;
+  height: 40px;
+  padding: 8px;
+  display: inline-block;
+  margin-left: 3px;
+}

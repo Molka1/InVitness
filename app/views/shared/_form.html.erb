@@ -1,13 +1,14 @@
 <%= simple_form_for(@challenge) do |f| %>
   <%= f.input :name %>
-  <%= f.input :amount %>
+  <%= f.input :amount, label: "Entry fee" %>
   <%= f.input :start_date %>
   <%= f.input :end_date %>
   <%= f.input :private %>
-  <%= f.input :exercise_length %>
-  <%= f.input :maximum %>
-  <%= f.input :points %>
-  <%= f.input :rollover %>
+  <%= f.input :exercise_length,label: "Minutes / Workout"%>
+  <%= f.input :maximum, label: "Workouts / Week", collection: 2..5 %>
   <%= f.input :photo, as: :file %>
   <%= f.submit class: "btn btn-light w-100" %>
+  <%# <%= f.submit class: "btn join-btn" %> 
 <% end %>
+
+
