@@ -3,7 +3,7 @@ class Challenge < ApplicationRecord
   has_many :exercises, dependent: :destroy
   has_many :user_challenges, dependent: :destroy
   has_many :users, through: :user_challenges
-  has_many :chatrooms
+  has_many :chatrooms, dependent: :destroy
 
   has_one_attached :photo
 
