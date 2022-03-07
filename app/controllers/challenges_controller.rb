@@ -23,6 +23,7 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.new(challenge_params)
     @challenge.user = current_user
     if @challenge.save!
+      UserChallenge.create(user: current_user, challenge: @challenge)
       redirect_to challenge_path(@challenge), notice: 'Your challenge has beed added!'
     else
       render :new
@@ -49,7 +50,10 @@ class ChallengesController < ApplicationController
   end
 
   def leaderboard
-    @user_challenges = UserChallenge.where(challenge: @challenge.id)
+    @user_challenges = UserChallenge.where(challenge: @challenge.id).order("points DESC")
+    @my_user_challenge = UserChallenge.find_by(user: current_user)
+    @owner = User.find(@challenge.user_id)
+    points
   end
 
   private
@@ -60,5 +64,16 @@ class ChallengesController < ApplicationController
 
   def challenge_params
     params.require(:challenge).permit(:name, :amount, :start_date, :end_date, :code, :private, :exercise_length, :maximum, :points, :rollover, :photo)
+  end
+
+  def points
+    @user_challenge = UserChallenge.where(challenge: @challenge.id)
+    @user_challenge.each do |member|
+      @user = member.user
+      @challenge = member.challenge
+      @exercises = Exercise.where(user: @user, challenge: @challenge)
+      member.points = @exercises.count
+      member.save!
+    end
   end
 end

@@ -36,6 +36,7 @@ challenge = Challenge.new(
 )
 challenge.photo.attach(io: file, filename: 'nes.png', content_type: 'image/jpg')
 challenge.save!
+UserChallenge.create(user: ella, challenge: challenge)
 
 file = URI.open('https://images.pexels.com/photos/39671/physiotherapy-weight-training-dumbbell-exercise-balls-39671.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
 challenge2 = Challenge.new(
@@ -54,6 +55,7 @@ challenge2 = Challenge.new(
 )
 challenge2.photo.attach(io: file, filename: 'nes.png', content_type: 'image/jpg')
 challenge2.save!
+UserChallenge.create(user: bob, challenge: challenge2)
 
 file = URI.open('https://images.pexels.com/photos/317157/pexels-photo-317157.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500')
 challenge3 = Challenge.new(
@@ -72,6 +74,7 @@ challenge3 = Challenge.new(
 )
 challenge3.photo.attach(io: file, filename: 'nes.png', content_type: 'image/jpg')
 challenge3.save!
+UserChallenge.create(user: ella, challenge: challenge3)
 
 file = URI.open('https://images.pexels.com/photos/3094230/pexels-photo-3094230.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500')
 challenge4 = Challenge.new(
@@ -90,6 +93,7 @@ challenge4 = Challenge.new(
 )
 challenge4.photo.attach(io: file, filename: 'nes.png', content_type: 'image/jpg')
 challenge4.save!
+UserChallenge.create(user: bob, challenge: challenge4)
 
 file = URI.open('https://images.pexels.com/photos/2526878/pexels-photo-2526878.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500')
 challenge5 = Challenge.new(
@@ -108,6 +112,7 @@ challenge5 = Challenge.new(
 )
 challenge5.photo.attach(io: file, filename: 'nes.png', content_type: 'image/jpg')
 challenge5.save!
+UserChallenge.create(user: harry, challenge: challenge5)
 
 file = URI.open('https://images.pexels.com/photos/39308/runners-silhouettes-athletes-fitness-39308.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500')
 challenge6 = Challenge.new(
@@ -126,6 +131,7 @@ challenge6 = Challenge.new(
 )
 challenge6.photo.attach(io: file, filename: 'nes.png', content_type: 'image/jpg')
 challenge6.save!
+UserChallenge.create(user: alan, challenge: challenge6)
 
 file = URI.open('https://images.pexels.com/photos/841131/pexels-photo-841131.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500')
 challenge7 = Challenge.new(
@@ -144,6 +150,7 @@ challenge7 = Challenge.new(
 )
 challenge7.photo.attach(io: file, filename: 'nes.png', content_type: 'image/jpg')
 challenge7.save!
+UserChallenge.create(user: harry, challenge: challenge7)
 
 file = URI.open('https://images.pexels.com/photos/2291874/pexels-photo-2291874.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500')
 challenge8 = Challenge.new(
@@ -162,6 +169,7 @@ challenge8 = Challenge.new(
 )
 challenge8.photo.attach(io: file, filename: 'nes.png', content_type: 'image/jpg')
 challenge8.save!
+UserChallenge.create(user: molka, challenge: challenge8)
 
 file = URI.open('https://images.pexels.com/photos/2294363/pexels-photo-2294363.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500')
 challenge9 = Challenge.new(
@@ -180,6 +188,7 @@ challenge9 = Challenge.new(
 )
 challenge9.photo.attach(io: file, filename: 'nes.png', content_type: 'image/jpg')
 challenge9.save!
+UserChallenge.create(user: alan, challenge: challenge9)
 
 file = URI.open('https://images.pexels.com/photos/1199607/pexels-photo-1199607.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500')
 challenge10 = Challenge.new(
@@ -198,3 +207,4 @@ challenge10 = Challenge.new(
 )
 challenge10.photo.attach(io: file, filename: 'nes.png', content_type: 'image/jpg')
 challenge10.save!
+UserChallenge.create(user: molka, challenge: challenge10)
