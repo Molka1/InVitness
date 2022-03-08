@@ -13,11 +13,11 @@ Challenge.destroy_all
 User.destroy_all
 puts "creating products"
 
-ella = User.create(email: "ella@email.com", password: "123456", username: "ellas", location: "London N1 4LH")
-bob = User.create(email: "bob@email.com", password: "123456", username: "bobbb", location: "London E2 8AN")
-molka = User.create(email: "molka@email.com", password: "123456", username: "molka1", location: " London E8 4AB")
-harry = User.create(email: "harry@email.com", password: "123456", username: "harrystyles", location: "Haggerston, London")
-alan = User.create(email: "alan@email.com", password: "123456", username: "alàn", location: "Hoxton, London")
+ella = User.create(email: "ella@email.com", password: "123456", username: "ellas", location: "London N1 4LH", name: "Ella", age: 24, favourite: "Zumba")
+bob = User.create(email: "bob@email.com", password: "123456", username: "bobbb", location: "London E2 8AN", name: "Bob", age: 27, favourite: "Swimming")
+molka = User.create(email: "molka@email.com", password: "123456", username: "molka1", location: " London E8 4AB", name: "Molka", age: 26, favourite: "Yoga")
+harry = User.create(email: "harry@email.com", password: "123456", username: "harrystyles", location: "Haggerston, London", name: "Harry", age: 35, favourite: "Running")
+alan = User.create(email: "alan@email.com", password: "123456", username: "alàn", location: "Hoxton, London", name: "Alàn", age: 25, favourite: "Weight Training")
 
 file = URI.open('https://images.pexels.com/photos/8758859/pexels-photo-8758859.jpeg?cs=srgb&dl=pexels-evelina-zhu-8758859.jpg&fm=jpg')
 challenge = Challenge.new(
