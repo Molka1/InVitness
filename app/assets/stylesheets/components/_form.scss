@@ -3,7 +3,8 @@
     height: 115vh;
     overflow: scroll;
     background-color:#dbd8d550 ;
-    color: $darker-orange;
+    color: #5f5858;
+    // color: $darker-orange;
     font-size: 16px;
     h2 {
         margin-top: 1rem;
@@ -20,6 +21,7 @@
 //   linear-gradient(to right, $our-yellow, $our-orange, $darker-orange, rgb(247, 37, 132));
 // background-color:#F9A33F ;
 
+
 .form-select{
   color: #5f5858;
 }
@@ -27,3 +29,5 @@
 .form-control{
   color: #5f5858;
 }
+
+// #5f5858;
