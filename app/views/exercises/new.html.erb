@@ -4,19 +4,19 @@
 <br>
 <br>
  <%= simple_form_for(@exercise) do |f| %>
-   <%= f.input :challenge_id, collection: Challenge.all %>
+   <%= f.input :challenge_id, collection: @my_challenges %>
    <br>
    <%= f.input :name, label: false, placeholder: 'My Workout Name'%>
    <%= f.input :start_time %>
    <%= f.input :end_time %>
    <%= f.input :photo, as: :file %>
-   <%= f.submit  "Post" , class: "btn join-btn" %> 
-   <%# <%= f.submit class: "btn join-btn" %> 
+   <%= f.submit  "Post" , class: "btn join-btn" %>
+   <%# <%= f.submit class: "btn join-btn" %>
 <% end %>
 <br>
 </div>
 
-<%# collection: Challenge.where( c_user= current_user) %> 
+<%# collection: Challenge.where( c_user= current_user) %>
 
 <%# <p id="demo"></p>
 
@@ -39,7 +39,7 @@
 <%# document.querySelector('#minutes').textContent %>
 <%# document.querySelector('#seconds').textContent %>
 
-<%# 
+<%#
 <script defer>
   var seconds = 00;
   var tens = 00;
