@@ -46,7 +46,7 @@ class ChallengesController < ApplicationController
 
   def members
     @user_challenges = UserChallenge.where(challenge: @challenge.id)
-    @my_user_challenge = UserChallenge.find_by(user: current_user)
+    @my_user_challenge = UserChallenge.find_by(user: current_user, challenge: @challenge.id)
     @owner = User.find(@challenge.user_id)
 
     @users = User.geocoded
@@ -63,7 +63,7 @@ class ChallengesController < ApplicationController
 
   def leaderboard
     @user_challenges = UserChallenge.where(challenge: @challenge.id).order("points DESC")
-    @my_user_challenge = UserChallenge.find_by(user: current_user)
+    @my_user_challenge = UserChallenge.find_by(user: current_user, challenge: @challenge.id)
     @owner = User.find(@challenge.user_id)
     points
   end
