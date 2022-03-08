@@ -1,9 +1,8 @@
 .mapboxgl-popup {
-  !important
-  background: #FEF4ED
   position: absolute;
   top: 0;
   left: 0;
+  border-radius: 14px;
   display: flex;
   will-change: transform;
   pointer-events: none;
@@ -11,21 +10,38 @@
 
 
 .mapboxgl-popup-content {
-!important
-  color: #f72585;
-  text-align: center;
-  font-family: "Work Sans", "Helvetica", "sans-serif";
+  color: #f72585 !important;
+  text-align: center !important;
+  font-family: "Work Sans", "Helvetica", "sans-serif" !important;
   position: relative;
   background: #FEF4ED;
-  border-radius: 9px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  padding: 10px 10px 15px;
+  border-radius: 14px;
+  padding: 7px 7px 8px;
   pointer-events: auto;
 }
 
 #info_window h2 {
-  !important
-  color: #f72585;
+  color: #f72585 !important;
+  margin: 0px, 0px, 0px, 0px !important;
+  margin-bottom: 0px !important;
   text-align: center;
   font-family: "Work Sans", "Helvetica", "sans-serif";
 }
+
+.mapboxgl-marker {
+background-color: #FEF4ED;
+}
+
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+background: transparent;
+border-top-color: #FEF4ED;
+}
+
+
+element.style {
+  max-width: 240px;
+  transform: translate(-50%, -100%) translate(189px, 309px);
+}
+
+// MAY COME IN HANDY
+// .mapboxgl-popup-anchor-bottom {}
