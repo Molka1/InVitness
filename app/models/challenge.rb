@@ -14,5 +14,4 @@ class Challenge < ApplicationRecord
   validates :user, presence: true
   validates :exercise_length, presence: true
   validates :maximum, presence: true
-  validates :points, presence: true
 end
