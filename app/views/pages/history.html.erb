@@ -15,4 +15,35 @@
   </div>
 </div>
 
-<h1>History</h1>
+<% if @my_challenges.empty? %>
+  <div class="d-flex justify-content-center align-items-center m-5">
+    <h2 class="about-points">You have no past challenges!</h2>
+  </div>
+<% else %>
+  <div class="card-container mb-5 pb-2">
+    <% @my_challenges.each do |challenge| %>
+      <%= link_to challenge_path(challenge[0]) do %>
+        <div class="card-challenge m-3">
+          <div class="card-img">
+          <% if challenge[0].photo.attached? %>
+              <%= cl_image_tag challenge[0].photo.key, height: 160, width: 384, crop: :fill, class: "main-img" %>
+            <% else %>
+              <%= image_tag "pexels-photo-1552242.webp" %>
+            <% end %>
+          </div>
+          <div class="challenge-length">
+            <h6 class="date m-0 p-1">Starts: <%= challenge[0].start_date %></h6>
+          </div>
+          <div class="card-challenge-info">
+            <div>
+              <h5 class="challenge-name"><%= challenge[0].name %></h5>
+              <h6><%= challenge[0].user.location %></h6>
+              <h6><%= challenge[0].maximum %></h6>
+            </div>
+            <h6 class="price">Entry: £<%= number_with_precision(challenge[0].amount, precision: 2) %></h6>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

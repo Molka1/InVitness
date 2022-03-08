@@ -1,0 +1,28 @@
+.about {
+  font-family: $main-font;
+  font-weight: bolder;
+}
+
+.about-points {
+  font-size: larger;
+  background-image: linear-gradient(to right, $our-yellow, $our-orange, $darker-orange, rgb(247, 37, 132));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-point-box {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.about-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 445px;
+}
+
+.avatar-profile {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.269);
+}
