@@ -29,14 +29,23 @@
   }
 }
 
+.chatroom-name {
+  background-image: linear-gradient(to right, $our-yellow, $our-orange, $darker-orange, rgb(247, 37, 132));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .chat-content {
   border-radius: 7px;
 }
 
 .received-message  {
-  background-color: #DEDEDE;
+  background-color: #dedede46;
+  padding: 7px;
+  padding-bottom: 0;
+  border-radius: 5px;
 }
 
 .sent-message {
-  margin-left: 50%;
+  margin-left: 37%;
 }

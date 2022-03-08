@@ -3,44 +3,36 @@ import consumer from "../channels/consumer"
 
 export default class extends Controller {
   static values = { chatroomId: Number }
-  static targets = ["messages", "form"]
+  static targets = ["form", "messages", "message"]
 
   connect() {
-    const messages = this.messagesTarget;
-    const currentUserId = messages.dataset.currentUserId;
-    if (messages) {
-      const chatroomId = messages.dataset.chatroomId;
-      const currentUserId = messages.dataset.currentUserId;
-
-      this.channel = consumer.subscriptions.create(
-        { channel: "ChatroomChannel", id: chatroomId  },
-        { received(messageHTML) {
-          // update the DOM
-          stimulusController.insertIntoDOM(messageHTML, currentUserId, messages);
-          }
-        })
+    this.channel = consumer.subscriptions.create(
+      { channel: "ChatroomChannel", id: this.chatroomIdValue },
+      { received: data => this.#insertMessageScrollDownAndResetForm(data) }
+      )
+      console.log(`Subscribed to the chatroom with the id ${this.chatroomIdValue}.`)
+      this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
     }
-    console.log(`Subscribed to the chatroom with the id ${this.chatroomIdValue}.`)
+
+  #insertMessageScrollDownAndResetForm(data) {
+    this.messagesTarget.insertAdjacentHTML("beforeend", data)
+    this.messageTargets.forEach((msg) => {
+      const senderId = msg.dataset.senderId
+      const currentUserId = this.messagesTarget.dataset.currentUserId
+      if (currentUserId == senderId) {
+        msg.classList.add('sent-message')
+      } else {
+        msg.classList.add('received-message')
+      }
+    })
+
+
+    this.formTarget.reset()
+    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
   }
 
-  insertIntoDOM = (messageHTML, currentUserId, messages) => {
-    // create an empty div
-    const message = document.createElement('div') // https://developer.mozilla.org/pt-BR/docs/Web/API/Document/createElement
-
-    // put the message HTML inside
-    message.innerHTML = messageHTML;
-    // if the message is from the sender,
-    if (message.firstChild.dataset.senderId === currentUserId) {
-      // add the sender CSS
-      message.firstChild.classList.add('sent-message');
-    } else {
-      // Else, add the receiver css
-      message.firstChild.classList.add('received-message');
-    }
-    messages.scrollTo(0, messages.scrollHeight)
-    this.formTarget.reset()
-
-    // insert the element in the DOM
-    messages.insertAdjacentElement('beforeend', message);
+  disconnect() {
+    console.log("Unsubscribed from the chatroom")
+    this.channel.unsubscribe()
   }
 }
