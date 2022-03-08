@@ -5,25 +5,21 @@
     <%= link_to challenge_path(@chatroom.challenge_id) do %>
       <i class="fas fa-angle-left ps-2 pt-2 chat-back"></i>
     <% end %>
-    <h1>#<%= @chatroom.name %></h1>
+    <h1 class="chatroom-name"><%= @chatroom.name %></h1>
   </div>
 
-  <div class="messages" data-chatroom-subscription-target="messages">
+  <div class="messages" data-chatroom-subscription-target="messages" data-current-user-id="<%= current_user.id %>">
     <% @chatroom.messages.each do |message| %>
       <% if message.user == current_user %>
-      <div class="sent-message">
-        <%= render "messages/message", message: message%>
-      </div>
+        <%= render "messages/message", message: message, css_class: "sent-message" %>
       <% else %>
-      <div class="received-message">
-        <%= render "messages/message", message: message%>
-      </div>
+        <%= render "messages/message", message: message, css_class: "received-message" %>
       <% end %>
     <% end %>
     </div class="chat-content">
       <%= simple_form_for [@chatroom, @message],
         remote: true,
-        data: {chatroom_subscription_target: "form"}, class: "d-flex" do |f|
+        html: {data: {chatroom_subscription_target: "form"}, class: "d-flex"} do |f|
       %>
         <%= f.input :content,
           label: false,
@@ -35,7 +31,3 @@
     </div>
   </div>
 </div>
-
-<script>
-  window.scrollTo(0,document.body.scrollHeight);
-</script>

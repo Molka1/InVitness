@@ -32,6 +32,18 @@ class PagesController < ApplicationController
   end
 
   def stats
+    @challenges = Challenge.where(user: current_user)
+    @exercises = Exercise.where(user: current_user)
+    @my_past_challenges = []
+    @my_current_challenges = []
+    @my_user_challenges = UserChallenge.where(user: current_user).order("created_at ASC")
+    @my_user_challenges.each do |challenge|
+      if Challenge.where(id: challenge.challenge_id)[0].end_date < DateTime.now
+        @my_past_challenges << Challenge.where(id: challenge.challenge_id)[0]
+      elsif Challenge.where(id: challenge.challenge_id)[0].end_date > DateTime.now
+        @my_current_challenges << Challenge.where(id: challenge.challenge_id)[0]
+      end
+    end
   end
 
   private
