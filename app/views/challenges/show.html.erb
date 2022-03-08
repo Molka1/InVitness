@@ -37,14 +37,12 @@
 
 <% if !@my_user_challenge.nil? %>
   <% if @my_user_challenge.user == current_user %>
-    <div>
-      <br>
-      <br>
-    </div>
+      <div>
+        <br>
+      </div>
   <% end %>
 <% elsif @challenge.user == current_user %>
-  <div>
-      <br>
+    <div>
       <br>
     </div>
 <% else %>
@@ -127,3 +125,27 @@
 
   </div>
 </div>
+
+<% if !@my_user_challenge.nil? %>
+  <% if @my_user_challenge.user == current_user %>
+    <div class="about-points m-4 fs-6 text d-flex justify-content-end">
+      <%= link_to user_challenge_path(@my_user_challenge), method: :delete, data: { confirm: "Are you sure?" }, class: "color-edit m-1" do %>
+        <p class="color-edit m-1">Leave Challenge</p>
+      <% end %>
+    </div>
+  <% end %>
+<% elsif @challenge.user == current_user %>
+    <div class="about-points m-4 fs-6 text d-flex justify-content-end">
+      <%= link_to edit_challenge_path(@challenge) do %>
+        <i class="far fa-edit color-edit m-1"></i>
+      <% end %>
+      <%= link_to challenge_path(@challenge), method: :delete, data: { confirm: "Are you sure?" } do %>
+        <i class="far fa-trash-alt color-edit m-1"></i>
+      <% end %>
+    </div>
+<% else %>
+   <div>
+    <br>
+    <br>
+  </div>
+<% end %>
