@@ -1,13 +1,15 @@
 <div class="new-form" >
- <h2>Post Your Proof!</h2>
-
+ <h2 class="form-font">Post Your Proof!</h2>
+<br>
+<br>
  <%= simple_form_for(@exercise) do |f| %>
    <%= f.input :challenge_id, collection: Challenge.all %>
    <%= f.input :name %>
    <%= f.input :start_time %>
    <%= f.input :end_time %>
    <%= f.input :photo, as: :file %>
-   <%= f.submit  "Post" , class: "btn btn-light w-100" %>
+   <%= f.submit  "Post" , class: "btn join-btn" %> 
+   <%# <%= f.submit class: "btn join-btn" %> 
 <% end %>
 <br>
 
