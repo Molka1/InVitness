@@ -2,14 +2,32 @@
     padding: 1rem;
     height: 115vh;
     overflow: scroll;
-    background-color:#F9A33F ;
-    color: white;
+    background-color:#dbd8d550 ;
+    color: #5f5858;
+    // color: $darker-orange;
+    font-size: 16px;
     h2 {
         margin-top: 1rem;
         text-align: center;
-    }
+    } 
   }
 
-
-
+.form-font{
+    font-size: 35px;
+    background-image: linear-gradient(to right, $our-yellow, $our-orange, $darker-orange, rgb(247, 37, 132));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+} 
 //   linear-gradient(to right, $our-yellow, $our-orange, $darker-orange, rgb(247, 37, 132));
+// background-color:#F9A33F ;
+
+
+.form-select{
+  color: #5f5858;
+}
+
+.form-control{
+  color: #5f5858;
+}
+
+// #5f5858;

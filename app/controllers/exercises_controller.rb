@@ -8,6 +8,11 @@ class ExercisesController < ApplicationController
 
   def new
     @exercise = Exercise.new
+    @my_challenges = []
+    @my_user_challenges = UserChallenge.where(user: current_user).order("created_at ASC")
+    @my_user_challenges.each do |challenge|
+      @my_challenges << Challenge.where(id: challenge.challenge_id)[0]
+    end
   end
 
   def create
