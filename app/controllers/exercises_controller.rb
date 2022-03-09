@@ -1,6 +1,6 @@
 class ExercisesController < ApplicationController
-  before_action :set_exercise, only: [:edit, :update, :destroy]
-  before_action :set_challenge, only: [:index, :edit, :update]
+  before_action :set_exercise, only: %i[edit update destroy]
+  before_action :set_challenge, only: %i[index edit update]
 
   def index
     @exercises = Exercise.where(challenge: @challenge).order("created_at DESC")
@@ -42,7 +42,8 @@ class ExercisesController < ApplicationController
   private
 
   def exercise_params
-    params.require(:exercise).permit(:name, :start_time, :end_time, :price, :content, :challenge_id, :photo,  user: current_user)
+    params.require(:exercise).permit(:name, :start_time, :end_time, :price, :content, :challenge_id, :photo,
+                                     user: current_user)
   end
 
   def set_exercise
@@ -53,11 +54,11 @@ class ExercisesController < ApplicationController
     @challenge = Challenge.find(params[:challenge_id])
   end
 
-    def start_time
-      exercise.update(start_time: Time.now)
-    end
+  def start_time
+    exercise.update(start_time: Time.now)
+  end
 
-   def stop_time
+  def stop_time
     exercise.update(stop_time: Time.now)
-   end
+  end
 end
