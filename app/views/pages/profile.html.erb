@@ -66,28 +66,8 @@
   <div class="about-big-cards m-3">
     <div class="about-big-card d-flex flex-column justify-content-center align-items-center">
       <div class="d-flex justify-content-center align-items-center me-3 my-2">
-            <div class="text-center my-2">
-              <i class="fas fa-biking px-3 py-0 m-2 stats-icons"></i>
-              <div>
-                <h6 class="missing-title">Current Challenges</h6>
-              </div>
-              <div>
-                <h4><%= @my_current_challenges.count %></h4>
-              </div>
-          </div>
+        <p class="about-bio">I have been a member of Invitness since <%= current_user.created_at.strftime("%B %Y") %>. My favourite exercise is <%= current_user.favourite %>! I have completed <%= @my_past_challenges.count %> challenges. I am currently in <%= @my_current_challenges.count %> challenges!  </p>
       </div>
-    </div>
-    <div class="about-big-card d-flex flex-column justify-content-center align-items-center">
-      <div class="d-flex justify-content-center align-items-center me-3 my-2">
-        <div>
-          <div class="about-point-box">
-              <h2 class="text-center about-points-card">Member Since:</h2>
-            </div>
-             <div class="about-data-card">
-              <h6><%= current_user.created_at.strftime("%Y")%></h6>
-             </div>
-          </div>
-        </div>
     </div>
   </div>
 </div>
