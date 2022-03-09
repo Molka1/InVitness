@@ -1,5 +1,5 @@
 class ChallengesController < ApplicationController
-  before_action :set_challenge, only: [:edit, :update, :show, :destroy, :members, :leaderboard]
+  before_action :set_challenge, only: %i[edit update show destroy members leaderboard]
 
   def index
     if params[:query].present?
@@ -75,7 +75,8 @@ class ChallengesController < ApplicationController
   end
 
   def challenge_params
-    params.require(:challenge).permit(:name, :amount, :start_date, :end_date, :code, :private, :exercise_length, :maximum, :points, :rollover, :photo)
+    params.require(:challenge).permit(:name, :amount, :start_date, :end_date, :code, :private, :exercise_length,
+                                      :maximum, :points, :rollover, :photo)
   end
 
   def points

@@ -23,6 +23,7 @@
       <% end %>
     </div>
   </div>
+
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-bottomborder mx-2">
       <div class="container-fluid" >
         <%= link_to "Rules", challenge_path(@challenge), class: "nav-link active-tab" %>
@@ -56,41 +57,50 @@
 <div class="rules-container">
   <div class="rules">
 
+  <div class="d-flex justify-content-evenly">
+  <div class="card-rules d-flex flex-column justify-content-start align-items-center me-3 my-2">
+      <div class="rule-point-box">
+        <i class="fas fa-stopwatch px-2 py-0 m-3 rule-points stopwatch-icon"></i>
+      </div>
+      <div>
+      <h2><%= @challenge.exercise_length %></h2>
+      </div>
+      </div>
+
+      <div class="card-rules d-flex flex-column justify-content-start align-items-center me-3 my-2">
+      <div class="rule-point-box">
+        <i class="fas fa-running px-2 py-0 m-3 rule-points running-icon"></i>
+      </div>
+      <div>
+      <h2> <%= @challenge.maximum %></h2>
+      </div>
+      </div>
+  </div>
+  
     <div class="d-flex justify-content-start align-items-center me-3 my-2">
       <div class="rule-point-box">
+        <i class="fas fa-calendar px-2 py-0 m-3 rule-points"><h6>Start</h6></i>
+      </div>
+      <div class= "d-flex flex-align">
+        <%= @challenge.start_date %> 
+      </div>
+  
+      <div class="rule-point-box">
+        <i class="fas fa-calendar px-2 py-0 m-3 rule-points"><h6>End</h6></i> 
+      </div>
+     
+        <div class= "d-flex flex-align">
+        <%= @challenge.end_date %>
+        </div>
+      
+    </div>
+      <%# <div class="rule-point-box">
         <i class="fas fa-calendar px-2 py-0 m-3 rule-points"></i>
       </div>
       <div>
-        <%= @challenge.start_date %> - <%= @challenge.end_date %>
-      </div>
-    </div>
+         <%= @challenge.end_date %>
+      <%# </div> %>
 
-    <div class="d-flex justify-content-start align-items-center me-3 my-2">
-      <div class="rule-point-box">
-        <i class="fas fa-stopwatch px-2 py-0 m-3 rule-points"></i>
-      </div>
-      <div>
-        <%= @challenge.exercise_length %>
-      </div>
-    </div>
-
-    <div class="d-flex justify-content-start align-items-center me-3 my-2">
-      <div class="rule-point-box">
-        <i class="fas fa-running px-2 py-0 m-3 rule-points"></i>
-      </div>
-      <div>
-        <%= @challenge.maximum %>
-      </div>
-    </div>
-
-    <div class="d-flex justify-content-start align-items-center me-3 my-2">
-      <div class="rule-point-box">
-        <i class="fas fa-dollar-sign ps-2 pe-3 py-0 m-3 rule-points"></i>
-      </div>
-      <div>
-        £<%= number_with_precision(@challenge.amount, precision: 2) %>
-      </div>
-    </div>
 
     <div class="d-flex justify-content-start align-items-center me-3 my-2">
       <div class="rule-point-box">
@@ -98,15 +108,6 @@
       </div>
       <div>
         <%= @challenge.proof %>
-      </div>
-    </div>
-
-    <div class="d-flex justify-content-start align-items-center me-3 my-2">
-      <div class="rule-point-box">
-        <i class="fas fa-dumbbell px-2 py-0 m-3 rule-points"></i>
-      </div>
-      <div>
-        <%= @challenge.points %>
       </div>
     </div>
 
@@ -120,6 +121,15 @@
         <% else %>
           There are no point rollovers
         <% end %>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-start align-items-center me-3 my-2">
+      <div class="rule-point-box">
+        <i class="fas fa-dumbbell px-2 py-0 m-3 rule-points"></i>
+      </div>
+      <div>
+        <%= @challenge.points %>
       </div>
     </div>
 

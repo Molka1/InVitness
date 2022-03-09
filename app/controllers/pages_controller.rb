@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home, :landing]
-  before_action :set_challenge, only: [:members, :leaderboard]
+  skip_before_action :authenticate_user!, only: %i[home landing]
+  before_action :set_challenge, only: %i[members leaderboard]
 
   def home
   end

@@ -13,11 +13,19 @@ Challenge.destroy_all
 User.destroy_all
 puts "creating products"
 
-ella = User.create(email: "ella@email.com", password: "123456", username: "ellas", location: "London N1 4LH", name: "Ella", age: 24, favourite: "Zumba")
-bob = User.create(email: "bob@email.com", password: "123456", username: "bobbb", location: "London E2 8AN", name: "Bob", age: 27, favourite: "Swimming")
-molka = User.create(email: "molka@email.com", password: "123456", username: "molka1", location: " London E8 4AB", name: "Molka", age: 26, favourite: "Yoga")
-harry = User.create(email: "harry@email.com", password: "123456", username: "harrystyles", location: "Haggerston, London", name: "Harry", age: 35, favourite: "Running")
-alan = User.create(email: "alan@email.com", password: "123456", username: "alàn", location: "Hoxton, London", name: "Alàn", age: 25, favourite: "Weight Training")
+ella = User.create(email: "ella@email.com", password: "123456", username: "ellaskolnick", location: "London N1 4LH", name: "Ella", age: 24, favourite: "Zumba")
+susannah = User.create(email: "susannah@email.com", password: "123456", username: "susannahtay", location: "London E2 8AN", name: "Susannah", age: 25, favourite: "Cycling")
+molka = User.create(email: "molka@email.com", password: "123456", username: "molka1", location: " London E8 4AB", name: "Molka", age: 30, favourite: "Yoga")
+sachin = User.create(email: "sachin@email.com", password: "123456", username: "sachimp", location: "Haggerston, London", name: "Sachin", age: 28, favourite: "Running")
+alan = User.create(email: "alan@email.com", password: "123456", username: "Alan-Ruiz", location: "Hoxton, London", name: "Alàn", age: 25, favourite: "Weight Training")
+ashton  = User.create(email: "ashton@email.com", password: "123456", username: "acharge91", location: "London E2 8AN", name: "Ashton", age: 29, favourite: "Cycling")
+fiorella = User.create(email: "fiorella@email.com", password: "123456", username: "sajifio", location: "Haggerston, London", name: "Fiorella", age: 24, favourite: "Running")
+andrea = User.create(email: "andrea@email.com", password: "123456", username: "AAATL", location: "Hoxton, London", name: "Andrea", age: 24, favourite: "Pilates")
+alex = User.create(email: "alex@email.com", password: "123456", username: "alexhtaylor", location: "Hoxton, London", name: "Alex", age: 25, favourite: "Football")
+luiza = User.create(email: "luiza@email.com", password: "123456", username: "l-p-n", location: "NW3, London", name: "Luiza", age: 25, favourite: "Football")
+kassra =  User.create(email: "kassra@email.com", password: "123456", username: "kazthemaz", location: "NW3, London", name: "Kassra", age: 25, favourite: "Hot yoga")
+ben =  User.create(email: "ben@email.com", password: "123456", username: "benmclaren", location: "NW3, London", name: "Ben", age: 25, favourite: "Hot yoga")
+
 
 file = URI.open('https://images.pexels.com/photos/8758859/pexels-photo-8758859.jpeg?cs=srgb&dl=pexels-evelina-zhu-8758859.jpg&fm=jpg')
 challenge = Challenge.new(
@@ -52,11 +60,11 @@ challenge2 = Challenge.new(
   proof: "Must post photo",
   points: "If you don't log your workout by the end of the week it will not count.",
   rollover: [true, false].sample,
-  user: bob
+  user: ben
 )
 challenge2.photo.attach(io: file, filename: 'nes.png', content_type: 'image/jpg')
 challenge2.save!
-UserChallenge.create(user: bob, challenge: challenge2)
+UserChallenge.create(user: ben, challenge: challenge2)
 Chatroom.create(name: challenge2.name, challenge: challenge2)
 
 file = URI.open('https://images.pexels.com/photos/317157/pexels-photo-317157.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500')
@@ -92,11 +100,11 @@ challenge4 = Challenge.new(
   proof: "Must post photo",
   points: "If you don't log your workout by the end of the week it will not count.",
   rollover: [true, false].sample,
-  user: bob
+  user: kassra
 )
 challenge4.photo.attach(io: file, filename: 'nes.png', content_type: 'image/jpg')
 challenge4.save!
-UserChallenge.create(user: bob, challenge: challenge4)
+UserChallenge.create(user: kassra, challenge: challenge4)
 Chatroom.create(name: challenge4.name, challenge: challenge4)
 
 file = URI.open('https://images.pexels.com/photos/2526878/pexels-photo-2526878.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500')
@@ -112,11 +120,11 @@ challenge5 = Challenge.new(
   proof: "Must post photo",
   points: "If you don't log your workout by the end of the week it will not count.",
   rollover: [true, false].sample,
-  user: harry
+  user: fiorella
 )
 challenge5.photo.attach(io: file, filename: 'nes.png', content_type: 'image/jpg')
 challenge5.save!
-UserChallenge.create(user: harry, challenge: challenge5)
+UserChallenge.create(user: fiorella, challenge: challenge5)
 Chatroom.create(name: challenge5.name, challenge: challenge5)
 
 file = URI.open('https://images.pexels.com/photos/39308/runners-silhouettes-athletes-fitness-39308.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500')
@@ -152,11 +160,11 @@ challenge7 = Challenge.new(
   proof: "Must post photo",
   points: "If you don't log your workout by the end of the week it will not count.",
   rollover: [true, false].sample,
-  user: harry
+  user: molka
 )
 challenge7.photo.attach(io: file, filename: 'nes.png', content_type: 'image/jpg')
 challenge7.save!
-UserChallenge.create(user: harry, challenge: challenge7)
+UserChallenge.create(user: molka, challenge: challenge7)
 Chatroom.create(name: challenge7.name, challenge: challenge7)
 
 file = URI.open('https://images.pexels.com/photos/2291874/pexels-photo-2291874.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500')
@@ -207,8 +215,8 @@ challenge10 = Challenge.new(
   end_date: Faker::Date.forward(days: 40),
   code: Faker::Number.number(digits: 10),
   private: [true, false].sample,
-  exercise_length: "30 minutes minimum / or walking 10, 000 steps",
-  maximum: "3 exercise sessions per week",
+  exercise_length: "30",
+  maximum: "3",
   proof: "Must post photo",
   points: "If you don't log your workout by the end of the week it will not count.",
   rollover: [true, false].sample,
