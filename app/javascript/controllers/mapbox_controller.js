@@ -23,31 +23,31 @@ export default class extends Controller {
     // });
     };
 
-    _fitMapToMarkers() {
-      const bounds = new mapboxgl.LngLatBounds()
-      this.markersValue.forEach(marker => bounds.extend([ markers.lng, markers.lat ]))
-      this.map.fitBounds(bounds, { padding: 1, maxZoom: 15, duration: 0
+    _addMarkersToMap() {
+      this.markersValue.forEach((marker) => {
+        const popup = new mapboxgl.Popup().setHTML(marker.info_window)
+
+        // Create a HTML element for your custom marker
+        const customMarker = document.createElement("div")
+        customMarker.className = "marker"
+        customMarker.style.backgroundImage = `url('${marker.image_url}')`
+        customMarker.style.backgroundSize = "contain"
+        customMarker.style.width = "35px"
+        customMarker.style.height = "35px"
+
+        // Pass the element as an argument to the new marker
+        new mapboxgl.Marker(customMarker)
+          .setLngLat([marker.lng, marker.lat])
+          .setPopup(popup)
+          .addTo(this.map)
       });
-    };
+      };
 
-      _addMarkersToMap() {
-        this.markersValue.forEach((marker) => {
-          const popup = new mapboxgl.Popup().setHTML(marker.info_window)
 
-          // Create a HTML element for your custom marker
-          const customMarker = document.createElement("div")
-          customMarker.className = "marker"
-          customMarker.style.backgroundImage = `url('${marker.image_url}')`
-          customMarker.style.backgroundSize = "contain"
-          customMarker.style.width = "35px"
-          customMarker.style.height = "35px"
-
-          // Pass the element as an argument to the new marker
-          new mapboxgl.Marker(customMarker)
-            .setLngLat([marker.lng, marker.lat])
-            .setPopup(popup)
-            .addTo(this.map)
+      _fitMapToMarkers() {
+        const bounds = new mapboxgl.LngLatBounds()
+        this.markersValue.forEach(marker => bounds.extend([ markers.lng, markers.lat ]))
+        this.map.fitBounds(bounds, { padding: 100, maxZoom: 15, duration: 0
         });
-
       };
 }
