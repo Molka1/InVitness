@@ -30,13 +30,14 @@ class ExercisesController < ApplicationController
   end
 
   def update
+    @exercise.challenge = @challenge
     @exercise.update(exercise_params)
-    redirect_to challenge_exercises_path
+    redirect_to challenge_exercises_path(@exercise.challenge)
   end
 
   def destroy
     @exercise.destroy
-    redirect_to challenge_exercises_path
+    redirect_to challenge_exercises_path(@exercise.challenge)
   end
 
   private
