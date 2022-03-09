@@ -21,6 +21,7 @@
 }
 
 .about-point-box {
+  height: 75%;
   width: 115px;
   padding: 0;
   margin: 0 auto;
@@ -70,6 +71,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 // Smallest device
@@ -81,10 +85,14 @@
 
 .about-data {
   // margin-bottom: 0;
+  height: 25%;
+  width: 100%;
+  text-align: center;
   padding-bottom: 0;
   position: absolute;
   bottom: 0;
   margin: 0 auto;
+  // margin-left: 5px;
 }
 
 .about-card {
@@ -95,8 +103,13 @@
 }
 
 .about-big-card {
-  width: 150px;
+  width: 150vw;
+  height: 15vh;
   border-radius: 5px;
   background-color: $darker-orange;
-  margin-top: 16px;
+  margin-top: 24px;
+}
+
+.social-container {
+
 }
