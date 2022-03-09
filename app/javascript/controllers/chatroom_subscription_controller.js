@@ -6,12 +6,12 @@ export default class extends Controller {
   static targets = ["form", "messages", "message"]
 
   connect() {
+    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
     this.channel = consumer.subscriptions.create(
       { channel: "ChatroomChannel", id: this.chatroomIdValue },
       { received: data => this.#insertMessageScrollDownAndResetForm(data) }
       )
       console.log(`Subscribed to the chatroom with the id ${this.chatroomIdValue}.`)
-      this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
     }
 
   #insertMessageScrollDownAndResetForm(data) {
