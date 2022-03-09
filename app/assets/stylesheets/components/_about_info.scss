@@ -82,6 +82,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #dbd8d550 ;
+  border-radius: 10px;
 }
 
 // Smallest device
@@ -92,6 +94,7 @@
 }
 
 .about-data {
+  font-weight: 600;
   font-size: 13px;
   height: 25%;
   width: 100%;
@@ -113,7 +116,7 @@
   width: 150vw;
   height: 20vh;
   border-radius: 10px;
-  background-color: #dbd8d550 ;
+  // background-color: #dbd8d550 ;
 }
 
 .social-container {
@@ -125,4 +128,8 @@
   height: 17em;
   margin: 0 auto;
   padding-top: 2.5em;
+}
+
+.about-bio {
+  text-align: center;
 }
