@@ -18,6 +18,16 @@ export default class extends Controller {
     });
     this._addMarkersToMap();
     this._fitMapToMarkers();
+    this.map.on('load', function () {
+      map.resize();
+    });
+    };
+
+    _fitMapToMarkers() {
+      const bounds = new mapboxgl.LngLatBounds()
+      this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
+      this.map.fitBounds(bounds, { padding: 200, maxZoom: 15, duration: 0
+      });
     };
 
       _addMarkersToMap() {
@@ -38,12 +48,5 @@ export default class extends Controller {
             .setPopup(popup)
             .addTo(this.map)
         });
-      }
-
-
-    _fitMapToMarkers() {
-          const bounds = new mapboxgl.LngLatBounds()
-          this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
-          this.map.fitBounds(bounds, { padding: 50, maxZoom: 15, duration: 2 })
-        }
-  }
+      };
+}
