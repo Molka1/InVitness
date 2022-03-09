@@ -52,40 +52,23 @@ class ChallengesController < ApplicationController
     @users = User.geocoded
 
 
-    #FIX HERE
-
     members = @user_challenges.map do |member|
       member.user
     end
 
-    # id_challenge_members = []
-    #   @user_challenges.each do |member|
-    #   id_challenge_members << member.user.id
-    # end
-
-    # challenge_users_array = []
-    #   id_challenge_members.each do |id|
-    #     @users.each do |user|
-    #       if user.id == id
-    #         challenge_users_array << user
-    #       end
-    #     end
-    #   end
-
-    # @markers = challenge_users_array.map do |user|
-
-    # raise
+    #Geocode and Mapbox
 
     @markers = members.map do |user|
       {
         lat: user.latitude,
         lng: user.longitude,
-        # info_window: render_to_string(partial: "info_window", locals: { user: members }),
         info_window: render_to_string( partial:"info_window", locals: { user: user}),
         image_url: helpers.asset_url("geocoding_marker.png")
       }
     end
+
   end
+
 
   def leaderboard
     @user_challenges = UserChallenge.where(challenge: @challenge.id).order("points DESC")
@@ -102,7 +85,7 @@ class ChallengesController < ApplicationController
 
   def challenge_params
     params.require(:challenge).permit(:name, :amount, :start_date, :end_date, :code, :private, :exercise_length,
-                                      :maximum, :points, :rollover, :photo)
+                                      :maximum, :points, :rollover, :photo, :location)
   end
 
   def points
