@@ -19,6 +19,11 @@ class PagesController < ApplicationController
   end
 
   def profile
+    @my_current_challenges = []
+    @my_user_challenges = UserChallenge.where(user: current_user).order("created_at ASC")
+    @my_user_challenges.each do |challenge|
+      @my_current_challenges << Challenge.where(id: challenge.challenge_id)[0]
+    end
   end
 
   def history
