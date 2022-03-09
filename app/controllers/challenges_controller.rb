@@ -66,6 +66,7 @@ class ChallengesController < ApplicationController
         image_url: helpers.asset_url("geocoding_marker.png")
       }
     end
+
   end
 
 

@@ -59,11 +59,11 @@
 
 <div class="flex-grow-1" style="position:relative; display:flex; flex-direction:column; flex:1;">
 
-      <%# <% @user_challenges.each do |member| %>
+      <% @user_challenges.each do |member| %>
     <div id="map" style="height: 650px; width: 100%; margin-bottom: 0px;"
       data-controller="mapbox"
       data-mapbox-markers-value="<%= @markers.to_json %>"
       data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-       <%# <% end %>
+       <% end %>
       </div>
   </div>

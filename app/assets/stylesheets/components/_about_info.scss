@@ -12,6 +12,14 @@
   padding: 2px;
 }
 
+.about-points-card {
+  background-image: linear-gradient(to right, $our-yellow, $our-orange, $darker-orange, rgb(247, 37, 132));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 auto;
+  padding: 2px;
+}
+
 .social {
   font-size: 25px;
   background-image: linear-gradient(to right, $our-yellow, $our-orange, $darker-orange, rgb(247, 37, 132));
@@ -21,6 +29,7 @@
 }
 
 .about-point-box {
+  height: 75%;
   width: 115px;
   padding: 0;
   margin: 0 auto;
@@ -70,6 +79,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 // Smallest device
@@ -81,10 +93,14 @@
 
 .about-data {
   // margin-bottom: 0;
+  height: 25%;
+  width: 100%;
+  text-align: center;
   padding-bottom: 0;
   position: absolute;
   bottom: 0;
   margin: 0 auto;
+  // margin-left: 5px;
 }
 
 .about-card {
@@ -95,8 +111,19 @@
 }
 
 .about-big-card {
-  width: 150px;
-  border-radius: 5px;
-  background-color: $darker-orange;
-  margin-top: 16px;
+  width: 150vw;
+  height: 20vh;
+  border-radius: 10px;
+  background-color: #dbd8d550 ;
+}
+
+.social-container {
+  position: relative;
+  margin-bottom: 0;
+}
+
+.cards-box-about {
+  height: 17em;
+  margin: 0 auto;
+  padding-top: 2.5em;
 }
