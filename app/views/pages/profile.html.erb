@@ -1,8 +1,8 @@
 <div class="sticky-top">
-  <div class="banner banner-bg py-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "pexels-photo-1552242.webp" %>')">
+  <div class="banner banner-bg py-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "pbg.jpg" %>')">
     <div class="container text-center">
-     <img class="avatar-large m-3 avatar-profile" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/<%= current_user.username %>">
-      <h1>@<%= current_user.username %></h1>
+     <img class="profile-avatar-large m-3 avatar-profile" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/<%= current_user.username %>">
+      <h1 class="profile-user">@<%= current_user.username %></h1>
     </div>
   </div>
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-bottomborder mx-2">
@@ -15,62 +15,76 @@
   </div>
 </div>
 
-<div class="about-container mt-4">
+<div class="about-container my-4">
   <div class="about">
-
-    <div class="d-flex justify-content-start align-items-center me-3 my-2">
-      <div class="about-point-box">
-        <h2 class="px-1 py-0 my-3 mx-0 about-points">Name:</h2>
-      </div>
-      <div class="px-1 py-0 my-3 mx-0">
-        <%= current_user.name %>
+    <div class="d-flex justify-content-center align-items-center m-3">
+      <div class="about-title-box">
+        <h1 class="form-font"><%= current_user.name %> | <%= current_user.age %></h1>
       </div>
     </div>
 
-    <div class="d-flex justify-content-start align-items-center me-3 my-2">
-      <div class="about-point-box">
-        <h2 class="px-1 py-0 my-3 mx-0 about-points">Age:</h2>
-      </div>
-      <div class="px-1 py-0 my-3 mx-0">
-        <%= current_user.age %>
-      </div>
-    </div>
+  <div class="about-cards">
+        <div class="d-flex justify-content-center about-card">
+          <div>
+            <div class="about-point-box">
+              <h2 class="text-center about-points">@</h2>
+            </div>
+            <div class="about-data">
+              <h6><%= current_user.email %></h6>
+            </div>
+          </div>
+        </div>
 
-    <div class="d-flex justify-content-start align-items-center me-3 my-2">
-      <div class="about-point-box">
-        <h2 class="px-1 py-0 my-3 mx-0 about-points">Location:</h2>
-      </div>
-      <div class="px-1 py-0 my-3 mx-0">
-        <%= current_user.location %>
-      </div>
-    </div>
+        <div class="d-flex justify-content-center about-card">
+          <div>
+            <div class="text-center about-point-box">
+              <%= image_tag ("geocoding_marker_1.png"), class: "location" %>
+            </div>
+            <div class="about-data">
+              <h6><%= current_user.location %></h6>
+            </div>
+          </div>
+        </div>
 
-    <div class="d-flex justify-content-start align-items-center me-3 my-2">
-      <div class="about-point-box">
-        <h2 class="px-1 py-0 my-3 mx-0 about-points">Email:</h2>
-      </div>
-      <div class="px-1 py-0 my-3 mx-0">
-        <%= current_user.email %>
-      </div>
-    </div>
-
-    <div class="d-flex justify-content-start align-items-center me-3 my-2">
-      <div class="about-point-box">
-        <h2 class="px-1 py-0 my-3 mx-0 about-points">Favourite Exercise:</h2>
-      </div>
-      <div class="px-1 py-0 my-3 mx-0">
-        <%= current_user.favourite %>
-      </div>
-    </div>
-
-    <div class="d-flex justify-content-start align-items-center me-3 my-2">
-      <div class="about-point-box">
-        <h2 class="px-1 py-0 my-3 mx-0 about-points">Member Since:</h2>
-      </div>
-      <div class="px-1 py-0 my-3 mx-0">
-        <%= current_user.created_at.strftime("%Y") %>
-      </div>
-    </div>
+        <div class="d-flex justify-content-center about-card">
+          <div>
+            <div class="text-center about-point-box">
+              <%= image_tag ("dumbell.png"), class: "fav-exercise" %>
+            </div>
+            <div class="about-data">
+              <h6><%= current_user.favourite %></h6>
+            </div>
+          </div>
+        </div>
+  </div>
+    <%# <div class="d-flex justify-content-start align-items-center me-3 my-2"> %>
+      <%# <%= image_tag ("invitness_whitebg.png"), class: "member-since" %>
+      <%# <div class="px-1 py-0 my-3 mx-0"> %>
+        <%# <h6><%= current_user.created_at.strftime("%Y")</h6> %>
+      <%# </div> %>
+    <%# </div> %>
 
   </div>
+
+</div>
+
+<div class="about-big-cards m-3">
+  <div class="about-big-card">
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+  <div class="about-big-card">
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+</div>
+
+<div class="text-center">
+  <i class="fab fa-facebook social"></i>
+  <i class="fab fa-instagram social"></i>
+  <i class="fab fa-twitter social"></i>
 </div>
