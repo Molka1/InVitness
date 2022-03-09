@@ -9,4 +9,7 @@ class ApplicationController < ActionController::Base
       u.permit(:username, :location, :email, :password, :current_password)
     end
   end
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
 end
