@@ -1,5 +1,5 @@
 meta_product_name: "InVitness"
 meta_title: "InVitness - Invest in your fitness "
 meta_description: "Join Invitness, join a challenge with friends, invest in it, share your proof, and get the reward!"
-meta_image: "invitnesslogo.png" # should exist in `app/assets/images/`
-# twitter_account: "@product_twitter_account"   # required for Twitter Cards
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
