@@ -1,4 +1,4 @@
-<div id="message-<%= message.id %>">
+<div id="message-<%= message.id %>" class="<%= local_assigns[:css_class] %>" data-chatroom-subscription-target="message" data-sender-id="<%= message.user.id %>">
   <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/<%= message.user.username %>" />
   <small>
     <strong><%= message.user.username %></strong>

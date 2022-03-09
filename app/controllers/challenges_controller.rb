@@ -51,11 +51,37 @@ class ChallengesController < ApplicationController
 
     @users = User.geocoded
 
-    @markers = @users.map do |user|
+
+    #FIX HERE
+
+    members = @user_challenges.map do |member|
+      member.user
+    end
+
+    # id_challenge_members = []
+    #   @user_challenges.each do |member|
+    #   id_challenge_members << member.user.id
+    # end
+
+    # challenge_users_array = []
+    #   id_challenge_members.each do |id|
+    #     @users.each do |user|
+    #       if user.id == id
+    #         challenge_users_array << user
+    #       end
+    #     end
+    #   end
+
+    # @markers = challenge_users_array.map do |user|
+
+    # raise
+
+    @markers = members.map do |user|
       {
         lat: user.latitude,
         lng: user.longitude,
         # info_window: render_to_string(partial: "info_window", locals: { user: members }),
+        info_window: render_to_string( partial:"info_window", locals: { user: user}),
         image_url: helpers.asset_url("geocoding_marker.png")
       }
     end

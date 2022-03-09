@@ -1,8 +1,8 @@
 <div class="sticky-top">
-  <div class="banner banner-bg py-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "pexels-photo-1552242.webp" %>')">
+  <div class="banner banner-bg py-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "pbg.jpg" %>')">
     <div class="container text-center">
-     <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/<%= current_user.username %>">
-      <h1>@<%= current_user.username %></h1>
+     <img class="profile-avatar-large m-3" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/<%= current_user.username %>">
+      <h1 class="profile-user">@<%= current_user.username %></h1>
     </div>
   </div>
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-bottomborder mx-2">
@@ -17,7 +17,7 @@
 
 <% if @my_challenges.empty? %>
   <div class="d-flex justify-content-center align-items-center m-5">
-    <h2 class="about-points">You have no past challenges!</h2>
+    <h2 class="missing-title">You have no past challenges!</h2>
   </div>
 <% else %>
   <div class="card-container mb-5 pb-2">

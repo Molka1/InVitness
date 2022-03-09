@@ -1,8 +1,8 @@
 <div class="sticky-top">
-  <div class="banner banner-bg py-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "pexels-photo-1552242.webp" %>')">
+  <div class="banner banner-bg py-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "pbg.jpg" %>')">
     <div class="container text-center">
-     <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/<%= current_user.username %>">
-      <h1>@<%= current_user.username %></h1>
+     <img class="profile-avatar-large m-3" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/<%= current_user.username %>">
+      <h1 class="profile-user">@<%= current_user.username %></h1>
     </div>
   </div>
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-bottomborder mx-2">
@@ -12,5 +12,49 @@
       <%= link_to "History", history_path, class: "nav-link" %>
       <%= link_to "Stats", stats_path, class: "nav-link active-tab" %>
     </div>
+  </div>
+</div>
+
+<div class="stats-box">
+  <div class="stats-container stats-cards">
+      <div class="text-center my-2">
+        <i class="fas fa-biking px-3 py-0 m-2 stats-icons"></i>
+         <div>
+          <h6 class="missing-title">Current Challenges</h6>
+        </div>
+        <div>
+          <h4><%= @my_current_challenges.count %></h4>
+        </div>
+      </div>
+
+      <div class="text-center my-2">
+        <i class="far fa-check-circle px-3 py-0 m-2 stats-icons"></i>
+        <div>
+         <h6 class="missing-title">Completed Challenges</h6>
+        </div>
+        <div>
+          <h4><%= @my_past_challenges.count %></h4>
+        </div>
+      </div>
+
+      <div class="text-center my-2">
+        <i class="fas fa-camera-retro px-3 py-0 m-2 stats-icons"></i>
+        <div>
+         <h6 class="missing-title">Exercises Posted</h6>
+        </div>
+        <div>
+          <h4><%= @exercises.count %></h4>
+        </div>
+      </div>
+
+      <div class="text-center my-2">
+        <i class="fas fa-dumbbell px-3 py-0 m-2 stats-icons"></i>
+        <div>
+         <h6 class="missing-title">Challenges Created</h6>
+        </div>
+        <div>
+          <h4><%= @challenges.count %></h4>
+        </div>
+      </div>
   </div>
 </div>
