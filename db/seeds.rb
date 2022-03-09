@@ -15,7 +15,7 @@ puts "creating products"
 
 ella = User.create(email: "ella@email.com", password: "123456", username: "ellaskolnick", location: "London N1 4LH", name: "Ella", age: 24, favourite: "Zumba")
 susannah = User.create(email: "susannah@email.com", password: "123456", username: "susannahtay", location: "London E2 8AN", name: "Susannah", age: 25, favourite: "Cycling")
-molka = User.create(email: "molka@email.com", password: "123456", username: "molka1", location: " London E8 4AB", name: "Molka", age: 30, favourite: "Yoga")
+molka = User.create(email: "molka@email.com", password: "123456", username: "molka1", location: "London E8 4AB", name: "Molka", age: 30, favourite: "Yoga")
 sachin = User.create(email: "sachin@email.com", password: "123456", username: "sachimp", location: "Haggerston, London", name: "Sachin", age: 28, favourite: "Running")
 alan = User.create(email: "alan@email.com", password: "123456", username: "Alan-Ruiz", location: "Hoxton, London", name: "Alàn", age: 25, favourite: "Weight Training")
 ashton  = User.create(email: "ashton@email.com", password: "123456", username: "acharge91", location: "London E2 8AN", name: "Ashton", age: 29, favourite: "Cycling")
