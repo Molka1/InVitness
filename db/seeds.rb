@@ -69,7 +69,7 @@ Chatroom.create(name: challenge1.name, challenge: challenge1)
 
 file = URI.open('https://images.pexels.com/photos/273062/pexels-photo-273062.jpeg?cs=srgb&dl=pexels-pixabay-273062.jpg&fm=jpg')
 challenge2 = Challenge.new(
-  name: "Le Wagon 5 Lunges per falshcard ",
+  name: "Le Wagon 5 Lunges per flashcard ",
   amount: rand(10..100),
   start_date: Faker::Date.backward(days: 10),
   end_date: Faker::Date.forward(days: 30),
@@ -344,7 +344,7 @@ Chatroom.create(name: challenge14.name, challenge: challenge14)
 
 file = URI.open('https://images.pexels.com/photos/3094230/pexels-photo-3094230.jpeg?cs=srgb&dl=pexels-valeria-ushakova-3094230.jpg&fm=jpg')
 challenge15 = Challenge.new(
-  name: "Family yoga ",
+  name: "Yoga ",
   amount: rand(10..100),
   start_date: Faker::Date.backward(days: 70),
   end_date:  Faker::Date.backward(days: 1),
