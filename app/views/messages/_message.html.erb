@@ -1,8 +1,8 @@
-<div id="message-<%= message.id %>" class="<%= local_assigns[:css_class] %>" data-chatroom-subscription-target="message" data-sender-id="<%= message.user.id %>">
-  <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/<%= message.user.username %>" />
+<div id="message-<%= message.id %>" class="<%= local_assigns[:css_class] %> message-box" data-chatroom-subscription-target="message" data-sender-id="<%= message.user.id %>">
+  <img class="avatar chat-img" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/<%= message.user.username %>" />
   <small>
-    <strong><%= message.user.username %></strong>
-    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+    <strong>@<%= message.user.username %></strong>
   </small>
-  <p><%= message.content %></p>
+  <p><strong class="msg-content"><%= message.content %></strong></p>
+  <i class="text-end message-time"><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
 </div>
