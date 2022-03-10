@@ -8,14 +8,21 @@
 
 .stats-container {
   padding-top: 100px;
+  h4 {
+    color: #5f5858bb;
+  }
 }
 
 .stats-cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 7px;
+  grid-gap: 16px;
 }
 
+.stats-card {
+  border-radius: 10px;
+  background-color: #dbd8d550;
+}
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .stats-cards {

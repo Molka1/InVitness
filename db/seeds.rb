@@ -13,6 +13,7 @@ Challenge.destroy_all
 User.destroy_all
 puts "creating products"
 
+
 ella = User.create(email: "ella@email.com", password: "123456", username: "ellaskolnick", location: "De Beauvoir, London", name: "Ella", age: 24, favourite: "Zumba")
 susannah = User.create(email: "susannah@email.com", password: "123456", username: "susannahtay", location: "camden, London", name: "Susannah", age: 25, favourite: "Cycling")
 molka = User.create(email: "molka@email.com", password: "123456", username: "molka1", location: "Hoxton, London", name: "Molka", age: 30, favourite: "Yoga")
@@ -27,6 +28,7 @@ kassra =  User.create(email: "kassra@email.com", password: "123456", username: "
 ben =  User.create(email: "ben@email.com", password: "123456", username: "benmclaren", location: "Aldgate East, London", name: "Ben", age: 25, favourite: "Hot yoga")
 dean = User.create(email: "dean@email.com", password: "123456", username: "DeanTResi", location: "Holborn, London", name: "Dean", age: 25, favourite: "coding")
 raph =  User.create(email: "raph@email.com", password: "123456", username: "r-manet", location: "Finsbury, London", name: "Raph", age: 22, favourite: "Yoga")
+
 
 
 

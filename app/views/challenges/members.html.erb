@@ -25,10 +25,10 @@
   </div>
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-bottomborder mx-2">
       <div class="container-fluid" >
-        <%= link_to "Rules", challenge_path(@challenge), class: "nav-link" %>
+        <%= link_to "Rules", challenge_path(@challenge), class: "nav-link px-0" %>
         <%= link_to "Members", members_path(@challenge), class: "nav-link active-tab" %>
-        <%= link_to "Proof", challenge_exercises_path(@challenge), class: "nav-link" %>
-        <%= link_to "Leaderboard", leaderboard_path(@challenge), class: "nav-link"  %>
+        <%= link_to "Proof", challenge_exercises_path(@challenge), class: "nav-link px-0" %>
+        <%= link_to "Leaderboard", leaderboard_path(@challenge), class: "nav-link px-0"  %>
       </div>
     </div>
 </div>
@@ -60,7 +60,7 @@
 <div class="flex-grow-1" style="position:relative; display:flex; flex-direction:column; flex:1;">
 <%#
       <% @user_challenges.each do |member| %>
-    <div id="map" style="height: 650px; width: 100%; margin-bottom: 0px;"
+    <div id="map" style="height: 475px; width: 100%; margin-bottom: 0px; z-index: 850;"
       data-controller="mapbox"
       data-mapbox-markers-value="<%= @markers.to_json %>"
       data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
