@@ -18,12 +18,17 @@
     <%= link_to dashboard_path, class: "navbar-brand mx-0" do %>
         <%= image_tag "gym.png" %>
     <% end %>
-
-    <%= link_to profile_path, class: "navbar-brand mx-0" do %>
-     <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/<%= current_user.username %>">
-        <%# <%= image_tag "user.png" %> 
+    
+     <% if user_signed_in? %>
+       <%= link_to profile_path, class: "navbar-brand mx-0" do %>
+       <img class=“avatar” alt=“avatar” src=“https://kitt.lewagon.com/placeholder/users/<%= current_user.username %>“>
+        <% end %>
+    <% else %>
+      <%= link_to profile_path, class: "navbar-brand mx-0" do %>
+      <%= image_tag "user.png" %>
     <% end %>
+  <% end %>
 
      </div>
- </div>
+</div>
 
