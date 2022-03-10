@@ -27,6 +27,7 @@ kassra =  User.create(email: "kassra@email.com", password: "123456", username: "
 ben =  User.create(email: "ben@email.com", password: "123456", username: "benmclaren", location: "N1, London", name: "Ben", age: 25, favourite: "Hot yoga")
 
 
+
 file = URI.open('https://images.pexels.com/photos/8758859/pexels-photo-8758859.jpeg?cs=srgb&dl=pexels-evelina-zhu-8758859.jpg&fm=jpg')
 challenge = Challenge.new(
   name: "Girls Workout Group!",
