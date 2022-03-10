@@ -4,6 +4,7 @@ class ExercisesController < ApplicationController
 
   def index
     @exercises = Exercise.where(challenge: @challenge).order("created_at DESC")
+    @my_user_challenge = UserChallenge.find_by(user: current_user, challenge: @challenge.id)
   end
 
   def new
