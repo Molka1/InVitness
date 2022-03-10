@@ -2,10 +2,19 @@ class ChallengesController < ApplicationController
   before_action :set_challenge, only: %i[edit update show destroy members leaderboard]
 
   def index
+    @present_challenges = []
     if params[:query].present?
-      @challenges = Challenge.where("name ILIKE ?", "%#{params[:query]}%")
+        Challenge.where("name ILIKE ?", "%#{params[:query]}%").each do |challenge|
+          if challenge.end_date > DateTime.now
+            @present_challenges << challenge
+          end
+        end
     else
-      @challenges = Challenge.all.order("created_at DESC")
+      Challenge.all.order("created_at DESC").each do |challenge|
+        if challenge.end_date > DateTime.now
+          @present_challenges << challenge
+        end
+      end
     end
     # @my_challenges = Challenge.where(user: current_user)
   end
