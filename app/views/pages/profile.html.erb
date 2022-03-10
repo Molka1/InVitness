@@ -2,7 +2,10 @@
   <div class="banner banner-bg py-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "pbg.jpg" %>')">
     <div class="container text-center">
      <img class="profile-avatar-large m-3 avatar-profile" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/<%= current_user.username %>">
-      <h1 class="profile-user">@<%= current_user.username %></h1>
+      <h1 class="profile-user">@<%= current_user.username %>
+      <%= link_to edit_user_registration_path do %>
+        <i class="far fa-edit color-edit small-edit"></i>
+      <% end %></h1>
     </div>
   </div>
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-bottomborder mx-2">
@@ -15,11 +18,6 @@
   </div>
 </div>
 
-<div class="sign-out m-0 p-0 fs-6 text d-flex justify-content-end">
-  <%= link_to destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" }, class: "color-edit m-1" do %>
-    <p class="color-edit m-1">Sign Out</p>
-  <% end %>
-</div>
 
 <div class="about-container my-4">
   <div class="about">
@@ -83,4 +81,10 @@
   <i class="fab fa-facebook social"></i>
   <i class="fab fa-instagram social"></i>
   <i class="fab fa-twitter social"></i>
+</div>
+
+<div class="sign-out m-0 p-0 fs-6 text d-flex justify-content-end">
+  <%= link_to destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" }, class: "color-edit m-1" do %>
+    <p class="color-edit m-1">Sign Out</p>
+  <% end %>
 </div>

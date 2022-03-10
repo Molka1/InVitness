@@ -145,3 +145,11 @@
       text-decoration: none;
     }
 }
+
+.small-edit {
+  font-size: small;
+  color: $darker-orange;
+    &:hover {
+      color: $darker-orange;
+    }
+}
