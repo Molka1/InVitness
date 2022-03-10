@@ -69,7 +69,7 @@ Chatroom.create(name: challenge1.name, challenge: challenge1)
 
 file = URI.open('https://images.pexels.com/photos/273062/pexels-photo-273062.jpeg?cs=srgb&dl=pexels-pixabay-273062.jpg&fm=jpg')
 challenge2 = Challenge.new(
-  name: "Le Wagon 5 Lunges per flashcard ",
+  name: "Le Wagon 5 Lunges /flashcard",
   amount: rand(10..100),
   start_date: Faker::Date.backward(days: 10),
   end_date: Faker::Date.forward(days: 30),
@@ -192,7 +192,7 @@ challenge7 = Challenge.new(
   code: Faker::Number.number(digits: 10),
   private: [true, false].sample,
   exercise_length: "20",
-  maximum: "2",
+  maximum: "4",
   user: molka
 )
 challenge7.photo.attach(io: file, filename: 'nes.png', content_type: 'image/jpg')
