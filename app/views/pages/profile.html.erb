@@ -15,11 +15,6 @@
   </div>
 </div>
 
-<div class="sign-out m-0 p-0 fs-6 text d-flex justify-content-end">
-  <%= link_to destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" }, class: "color-edit m-1" do %>
-    <p class="color-edit m-1">Sign Out</p>
-  <% end %>
-</div>
 
 <div class="about-container my-4">
   <div class="about">
@@ -83,4 +78,10 @@
   <i class="fab fa-facebook social"></i>
   <i class="fab fa-instagram social"></i>
   <i class="fab fa-twitter social"></i>
+</div>
+
+<div class="sign-out m-0 p-0 fs-6 text d-flex justify-content-end">
+  <%= link_to destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" }, class: "color-edit m-1" do %>
+    <p class="color-edit m-1">Sign Out</p>
+  <% end %>
 </div>
