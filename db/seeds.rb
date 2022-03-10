@@ -1,10 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
 require 'faker'
 require "open-uri"
 puts "cleaning database"
@@ -12,6 +6,7 @@ Exercise.destroy_all
 Challenge.destroy_all
 User.destroy_all
 puts "creating products"
+
 
 
 ella = User.create(email: "ella@email.com", password: "123456", username: "ellaskolnick", location: "De Beauvoir, London", name: "Ella", age: 24, favourite: "Zumba")
@@ -28,8 +23,6 @@ kassra =  User.create(email: "kassra@email.com", password: "123456", username: "
 ben =  User.create(email: "ben@email.com", password: "123456", username: "benmclaren", location: "Aldgate East, London", name: "Ben", age: 25, favourite: "Hot yoga")
 dean = User.create(email: "dean@email.com", password: "123456", username: "DeanTResi", location: "Holborn, London", name: "Dean", age: 25, favourite: "coding")
 raph =  User.create(email: "raph@email.com", password: "123456", username: "r-manet", location: "Finsbury, London", name: "Raph", age: 22, favourite: "Yoga")
-
-
 
 
 file = URI.open('https://images.pexels.com/photos/235724/pexels-photo-235724.jpeg?cs=srgb&dl=pexels-pixabay-235724.jpg&fm=jpg')
@@ -69,7 +62,7 @@ Chatroom.create(name: challenge1.name, challenge: challenge1)
 
 file = URI.open('https://images.pexels.com/photos/273062/pexels-photo-273062.jpeg?cs=srgb&dl=pexels-pixabay-273062.jpg&fm=jpg')
 challenge2 = Challenge.new(
-  name: "Le Wagon 5 Lunges per flashcard ",
+  name: "Le Wagon 5 Lunges /flashcard",
   amount: rand(10..100),
   start_date: Faker::Date.backward(days: 10),
   end_date: Faker::Date.forward(days: 30),
@@ -86,8 +79,6 @@ UserChallenge.create(user: ella, challenge:challenge2)
 UserChallenge.create(user: susannah, challenge: challenge2)
 UserChallenge.create(user: sachin, challenge: challenge2)
 Chatroom.create(name: challenge2.name, challenge: challenge2)
-
-
 
 file = URI.open('https://images.pexels.com/photos/4775192/pexels-photo-4775192.jpeg?cs=srgb&dl=pexels-maksim-goncharenok-4775192.jpg&fm=jpg')
 challenge3 = Challenge.new(
@@ -192,7 +183,7 @@ challenge7 = Challenge.new(
   code: Faker::Number.number(digits: 10),
   private: [true, false].sample,
   exercise_length: "20",
-  maximum: "2",
+  maximum: "4",
   user: molka
 )
 challenge7.photo.attach(io: file, filename: 'nes.png', content_type: 'image/jpg')
