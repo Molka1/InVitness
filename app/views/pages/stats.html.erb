@@ -16,44 +16,52 @@
 </div>
 
 <div class="stats-box">
-  <div class="stats-container stats-cards">
-      <div class="text-center my-2">
-        <i class="fas fa-biking px-3 py-0 m-2 stats-icons"></i>
-        <div>
-          <h6 class="missing-title">Current Challenges</h6>
-        </div>
-        <div>
-          <h4><%= @my_current_challenges.count %></h4>
-        </div>
-      </div>
-
-      <div class="text-center my-2">
-        <i class="far fa-check-circle px-3 py-0 m-2 stats-icons"></i>
-        <div>
-         <h6 class="missing-title">Completed Challenges</h6>
-        </div>
-        <div>
-          <h4><%= @my_past_challenges.count %></h4>
+  <div class="stats-container stats-cards mx-3">
+      <div class="text-center">
+        <div class="stats-card py-2">
+          <i class="fas fa-biking px-3 py-0 m-2 stats-icons"></i>
+          <div>
+            <h6 class="missing-title">Current Challenges</h6>
+          </div>
+          <div>
+            <h4><%= @my_current_challenges.count %></h4>
+          </div>
         </div>
       </div>
 
-      <div class="text-center my-2">
-        <i class="fas fa-camera-retro px-3 py-0 m-2 stats-icons"></i>
-        <div>
-         <h6 class="missing-title">Exercises Posted</h6>
-        </div>
-        <div>
-          <h4><%= @exercises.count %></h4>
+      <div class="text-center">
+        <div class="stats-card py-2">
+          <i class="far fa-check-circle px-3 py-0 m-2 stats-icons"></i>
+          <div>
+          <h6 class="missing-title">Completed Challenges</h6>
+          </div>
+          <div>
+            <h4><%= @my_past_challenges.count %></h4>
+          </div>
         </div>
       </div>
 
-      <div class="text-center my-2">
-        <i class="fas fa-dumbbell px-3 py-0 m-2 stats-icons"></i>
-        <div>
-         <h6 class="missing-title">Challenges Created</h6>
+      <div class="text-center">
+        <div class="stats-card py-2">
+          <i class="fas fa-camera-retro px-3 py-0 m-2 stats-icons"></i>
+          <div>
+          <h6 class="missing-title">Exercises Posted</h6>
+          </div>
+          <div>
+            <h4><%= @exercises.count %></h4>
+          </div>
         </div>
-        <div>
-          <h4><%= @challenges.count %></h4>
+      </div>
+
+      <div class="text-center">
+        <div class="stats-card py-2">
+          <i class="fas fa-dumbbell px-3 py-0 m-2 stats-icons"></i>
+          <div>
+          <h6 class="missing-title">Challenges Created</h6>
+          </div>
+          <div>
+            <h4><%= @challenges.count %></h4>
+          </div>
         </div>
       </div>
   </div>

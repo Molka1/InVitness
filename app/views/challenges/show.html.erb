@@ -44,82 +44,81 @@
   </div>
 </div>
 
-<div class="rules-container">
+<div class="rules-container mt-3">
   <div class="rules">
 
-<div class="d-flex justify-content-evenly">
- <div class="card-rules d-flex flex-column justify-content-start align-items-center me-3 my-2">
+<div class="d-flex justify-content-center stats-cards">
+ <div class="card-rules d-flex flex-column justify-content-center align-items-center">
       <div class="rule-point-box">
         <i class="fas fa-stopwatch px-2 py-0 m-3 rule-points stopwatch-icon"></i>
       </div>
       <div>
-      <h2><%= @challenge.exercise_length %></h2>
-      </div>
-  </div>
-
-  <div class="card-rules d-flex flex-column justify-content-start align-items-center me-3 my-2">
-      <div class="rule-point-box">
-        <i class="fas fa-running px-2 py-0 m-3 rule-points running-icon"></i>
+        <h4><%= @challenge.exercise_length %></h4>
       </div>
       <div>
-      <h2> <%= @challenge.maximum %></h2>
-      </div>
+        <h6 class="missing-title">mins/workout</h6>
       </div>
   </div>
 
-    <div class="d-flex justify-content-start align-items-center me-3 my-2">
+  <div class="card-rules d-flex flex-column justify-content-center align-items-center">
       <div class="rule-point-box">
-        <i class="fas fa-calendar px-2 py-0 m-3 rule-points"><h6>Start</h6></i>
-      </div>
-      <div class= "d-flex flex-align">
-        <%= @challenge.start_date %>
-      </div>
-
-      <div class="rule-point-box">
-        <i class="fas fa-calendar px-2 py-0 m-3 rule-points"><h6>End</h6></i>
-      </div>
-
-        <div class= "d-flex flex-align">
-        <%= @challenge.end_date %>
+          <i class="fas fa-running px-2 py-0 m-3 rule-points running-icon"></i>
         </div>
-
-    </div>
-      <%# <div class="rule-point-box">
-        <i class="fas fa-calendar px-2 py-0 m-3 rule-points"></i>
+        <div>
+        <h4> <%= @challenge.maximum %></h4>
+        </div>
+        <div>
+            <h6 class="missing-title">times/week</h6>
+          </div>
       </div>
-      <div>
-         <%= @challenge.end_date %>
-      <%# </div> %>
+  </div>
+
+<br>
+
+  <div class="d-flex stats-cards ms-3">
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="rule-point-box text-center">
+          <i class="fas fa-calendar px-2 py-0 m-3 rule-points"><h6>Start</h6></i>
+        </div>
+        <div class= "d-flex flex-align mb-2">
+          <%= @challenge.start_date.strftime("%d %B %Y") %>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="rule-point-box text-center">
+          <i class="fas fa-calendar px-2 py-0 m-3 rule-points"><h6>End</h6></i>
+        </div>
+        <div class= "d-flex flex-align mb-2">
+          <%= @challenge.end_date.strftime("%d %B %Y") %>
+        </div>
+    </div>
+  </div>
 
 
-    <div class="d-flex justify-content-start align-items-center me-3 my-2">
+    <div class="d-flex justify-content-start align-items-center mx-3 my-2">
       <div class="rule-point-box">
         <i class="fas fa-camera-retro px-2 py-0 m-3 rule-points"></i>
       </div>
-      <div>
-        <%= @challenge.proof %>
+      <div class="me-5">
+        You must post your photo as proof
       </div>
     </div>
 
-    <div class="d-flex justify-content-start align-items-center me-3 my-2">
+    <div class="d-flex justify-content-start align-items-center mx-3 my-2">
       <div class="rule-point-box">
         <i class="fas fa-biking px-2 py-0 m-3 rule-points"></i>
-      </div>
+      </div class="me-5">
       <div>
-        <% if @challenge.rollover %>
-          There are point rollovers
-        <% else %>
-          There are no point rollovers
-        <% end %>
+        There are no point rollovers
       </div>
     </div>
 
-    <div class="d-flex justify-content-start align-items-center me-3 my-2">
+    <div class="d-flex justify-content-start align-items-center mx-3 my-2">
       <div class="rule-point-box">
         <i class="fas fa-dumbbell px-2 py-0 m-3 rule-points"></i>
       </div>
-      <div>
-        <%= @challenge.points %>
+      <div class="me-5">
+        If you don't log your workout by the end of the week it will not count.
       </div>
     </div>
 

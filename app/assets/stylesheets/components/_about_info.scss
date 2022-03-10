@@ -133,3 +133,15 @@
 .about-bio {
   text-align: center;
 }
+
+.sign-out a {
+  text-decoration: none;
+  position: absolute;
+  right: 0;
+  bottom: 100px;
+  color: #5f5858bb;
+    &:hover {
+      color: #5f5858;
+      text-decoration: none;
+    }
+}
