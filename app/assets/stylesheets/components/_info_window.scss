@@ -1,3 +1,9 @@
+
+.mapboxgl-canvas {
+max-height: fit-content !important;
+max-width: fit-content !important;
+}
+
 .mapboxgl-popup {
   position: absolute;
   top: 0;
