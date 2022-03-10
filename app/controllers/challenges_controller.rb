@@ -51,7 +51,6 @@ class ChallengesController < ApplicationController
 
     @users = User.geocoded
 
-
     members = @user_challenges.map do |member|
       member.user
     end

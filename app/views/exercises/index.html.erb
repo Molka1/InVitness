@@ -33,36 +33,42 @@
     </div>
 </div>
 
-<div class="card-container-proof">
-  <div class="card-container mb-5 pb-2">
-    <% @exercises.each do |exercise| %>
-      <div class="card-proof m-3">
-        <div class="card-img">
-        <% if exercise.photo.attached? %>
-            <%= cl_image_tag exercise.photo.key, height: 360, width: 360, crop: :fill%>
-          <% else %>
-            <%= image_tag "pexels-photo-1552242.webp" %>
-          <% end %>
-        </div>
-        <div class="card-proof-info">
-          <div>
-            <p class="bold user-proof">@<%= exercise.user.username %></p>
-          </div>
-          <p><%= exercise.name.capitalize %></p>
-          <div class="proof-length">
-            <% if exercise.user == current_user %>
-              <div class="proof-edits">
-                <%= link_to edit_challenge_exercise_path(@challenge, exercise.id) do %>
-                  <i class="far fa-edit color-edit"></i>
-                <% end %>
-                <%= link_to exercise_path(exercise.id), method: :delete, data: { confirm: "Are you sure?" } do %>
-                  <i class="far fa-trash-alt color-edit"></i>
-                <% end %>
-              </div>
+<% if @exercises.empty? %>
+  <div class="d-flex justify-content-center align-items-center m-5">
+    <h2 class="missing-title">No proofs posted yet!</h2>
+  </div>
+<% else %>
+  <div class="card-container-proof">
+    <div class="card-container mb-5 pb-2">
+      <% @exercises.each do |exercise| %>
+        <div class="card-proof m-3">
+          <div class="card-img">
+          <% if exercise.photo.attached? %>
+              <%= cl_image_tag exercise.photo.key, height: 360, width: 360, crop: :fill%>
+            <% else %>
+              <%= image_tag "pexels-photo-1552242.webp" %>
             <% end %>
           </div>
+          <div class="card-proof-info">
+            <div>
+              <p class="bold user-proof">@<%= exercise.user.username %></p>
+            </div>
+            <p><%= exercise.name.capitalize %></p>
+            <div class="proof-length">
+              <% if exercise.user == current_user %>
+                <div class="proof-edits">
+                  <%= link_to edit_challenge_exercise_path(@challenge, exercise.id) do %>
+                    <i class="far fa-edit color-edit"></i>
+                  <% end %>
+                  <%= link_to exercise_path(exercise.id), method: :delete, data: { confirm: "Are you sure?" } do %>
+                    <i class="far fa-trash-alt color-edit"></i>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
+<% end %>
