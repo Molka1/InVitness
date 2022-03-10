@@ -30,8 +30,6 @@ dean = User.create(email: "dean@email.com", password: "123456", username: "DeanT
 raph =  User.create(email: "raph@email.com", password: "123456", username: "r-manet", location: "Finsbury, London", name: "Raph", age: 22, favourite: "Yoga")
 
 
-
-
 file = URI.open('https://images.pexels.com/photos/235724/pexels-photo-235724.jpeg?cs=srgb&dl=pexels-pixabay-235724.jpg&fm=jpg')
 challenge = Challenge.new(
   name: "Rails in the sun, Le Wagon",
@@ -86,8 +84,6 @@ UserChallenge.create(user: ella, challenge:challenge2)
 UserChallenge.create(user: susannah, challenge: challenge2)
 UserChallenge.create(user: sachin, challenge: challenge2)
 Chatroom.create(name: challenge2.name, challenge: challenge2)
-
-
 
 file = URI.open('https://images.pexels.com/photos/4775192/pexels-photo-4775192.jpeg?cs=srgb&dl=pexels-maksim-goncharenok-4775192.jpg&fm=jpg')
 challenge3 = Challenge.new(
