@@ -14,17 +14,17 @@ User.destroy_all
 puts "creating products"
 
 ella = User.create(email: "ella@email.com", password: "123456", username: "ellaskolnick", location: "DeBeauvoir, London", name: "Ella", age: 24, favourite: "Zumba")
-susannah = User.create(email: "susannah@email.com", password: "123456", username: "susannahtay", location: "London E2 8AN", name: "Susannah", age: 25, favourite: "Cycling")
-molka = User.create(email: "molka@email.com", password: "123456", username: "molka1", location: "London E8 4AB", name: "Molka", age: 30, favourite: "Yoga")
-sachin = User.create(email: "sachin@email.com", password: "123456", username: "sachimp", location: "Haggerston, London", name: "Sachin", age: 28, favourite: "Running")
+susannah = User.create(email: "susannah@email.com", password: "123456", username: "susannahtay", location: "London Bridge, London", name: "Susannah", age: 25, favourite: "Cycling")
+molka = User.create(email: "molka@email.com", password: "123456", username: "molka1", location: "London N2 0QJ", name: "Molka", age: 30, favourite: "Yoga")
+sachin = User.create(email: "sachin@email.com", password: "123456", username: "sachimp", location: "Shoreditch, London", name: "Sachin", age: 28, favourite: "Running")
 alan = User.create(email: "alan@email.com", password: "123456", username: "Alan-Ruiz", location: "Hoxton, London", name: "Alàn", age: 25, favourite: "Weight Training")
-ashton  = User.create(email: "ashton@email.com", password: "123456", username: "acharge91", location: "London E2 8AN", name: "Ashton", age: 29, favourite: "Cycling")
+ashton  = User.create(email: "ashton@email.com", password: "123456", username: "acharge91", location: "Bermondsey, London", name: "Ashton", age: 29, favourite: "Cycling")
 fiorella = User.create(email: "fiorella@email.com", password: "123456", username: "sajifio", location: "Haggerston, London", name: "Fiorella", age: 24, favourite: "Running")
 andrea = User.create(email: "andrea@email.com", password: "123456", username: "AAATL", location: "N1 4LH, London", name: "Andrea", age: 24, favourite: "Pilates")
-alex = User.create(email: "alex@email.com", password: "123456", username: "alexhtaylor", location: "Hoxton, London", name: "Alex", age: 25, favourite: "Football")
+alex = User.create(email: "alex@email.com", password: "123456", username: "alexhtaylor", location: "Stoke Newington, London", name: "Alex", age: 25, favourite: "Football")
 luiza = User.create(email: "luiza@email.com", password: "123456", username: "l-p-n", location: "NW3, London", name: "Luiza", age: 25, favourite: "Football")
-kassra =  User.create(email: "kassra@email.com", password: "123456", username: "kazthemaz", location: "NW3, London", name: "Kassra", age: 25, favourite: "Hot yoga")
-ben =  User.create(email: "ben@email.com", password: "123456", username: "benmclaren", location: "NW3, London", name: "Ben", age: 25, favourite: "Hot yoga")
+kassra =  User.create(email: "kassra@email.com", password: "123456", username: "kazthemaz", location: "NW11, London", name: "Kassra", age: 25, favourite: "Hot yoga")
+ben =  User.create(email: "ben@email.com", password: "123456", username: "benmclaren", location: "N1, London", name: "Ben", age: 25, favourite: "Hot yoga")
 
 
 file = URI.open('https://images.pexels.com/photos/8758859/pexels-photo-8758859.jpeg?cs=srgb&dl=pexels-evelina-zhu-8758859.jpg&fm=jpg')

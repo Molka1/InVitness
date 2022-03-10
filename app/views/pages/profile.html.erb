@@ -15,6 +15,12 @@
   </div>
 </div>
 
+<div class="sign-out m-0 p-0 fs-6 text d-flex justify-content-end">
+  <%= link_to destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" }, class: "color-edit m-1" do %>
+    <p class="color-edit m-1">Sign Out</p>
+  <% end %>
+</div>
+
 <div class="about-container my-4">
   <div class="about">
     <div class="d-flex justify-content-center align-items-center m-3">
@@ -66,11 +72,12 @@
   <div class="about-big-cards m-3">
     <div class="about-big-card d-flex flex-column justify-content-center align-items-center">
       <div class="d-flex justify-content-center align-items-center me-3 my-2">
-        <p class="about-bio">I have been a member of Invitness since <%= current_user.created_at.strftime("%B %Y") %>. My favourite exercise is <%= current_user.favourite %>! I have completed <%= @my_past_challenges.count %> challenges. I am currently in <%= @my_current_challenges.count %> challenges!  </p>
+        <p class="about-bio">I have been a member of Invitness since <strong><%= current_user.created_at.strftime("%B %Y") %></strong>. My favourite exercise is <strong><%= current_user.favourite %></strong>! I have completed <strong><%= @my_past_challenges.count %></strong> challenges. I am currently in <strong><%= @my_current_challenges.count %></strong> challenges!  </p>
       </div>
     </div>
   </div>
 </div>
+
 
 <div class="text-center social-container">
   <i class="fab fa-facebook social"></i>
