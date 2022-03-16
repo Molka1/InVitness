@@ -5,6 +5,8 @@
 
 ## Collaborators 
 
+## [Molka Meziou](https://github.com/Molka1)
+
 ## [Ella Skolnick](https://github.com/ellaskolnick)
 
 ## [Andrea Terminel](https://github.com/AAATL)
